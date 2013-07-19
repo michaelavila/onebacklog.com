@@ -50,3 +50,8 @@ group :test, :development do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
 end
+
+group :production do
+  gem 'rails_12factor'
+  gem 'pg'
+end
