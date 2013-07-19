@@ -5,3 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+BacklogItem.create :name => "Really important seed item", :description => "Well, if you didn't notice, it's really important."
