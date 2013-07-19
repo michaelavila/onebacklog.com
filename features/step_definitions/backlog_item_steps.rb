@@ -1,11 +1,9 @@
 Given /^a backlog item exists$/ do
-  @yesterday = Date.yesterday
-  @today = @yesterday.tomorrow
   @backlog_item = BacklogItem.create(
     :name => 'Name for Testing',
     :description => 'Description for Testing',
-    :created_at => @yesterday,
-    :updated_at => @today
+    :created_at => Date.yesterday,
+    :updated_at => Date.today
   )
 end
 
@@ -22,9 +20,9 @@ Then /^I should see the description of the item$/ do
 end
 
 Then /^I should see when the item was created$/ do
-  expect(page).to have_content(@yesterday)
+  expect(page).to have_content(@backlog_item.created_at)
 end
 
 Then /^I should see when the item was last updated$/ do
-  expect(page).to have_content(@today)
+  expect(page).to have_content(@backlog_item.updated_at)
 end
