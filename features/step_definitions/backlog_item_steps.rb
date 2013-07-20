@@ -6,6 +6,8 @@ Given /^a backlog item exists$/ do
     :updated_at => Date.today,
     :status => 'Status for Testing'
   )
+  @backlog_item.label_list = 'First Label for Testing, Second Label for Testing'
+  @backlog_item.save
 end
 
 When /^I view the item$/ do
@@ -30,4 +32,10 @@ end
 
 Then /^I should see the status of the item$/ do
   expect(page).to have_content(@backlog_item.status)
+end
+
+Then /^I should see what the item is labeled with$/ do
+  @backlog_item.label_list.each do |label|
+    expect(page).to have_content(label)
+  end
 end

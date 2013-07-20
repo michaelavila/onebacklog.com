@@ -58,3 +58,6 @@ group :production do
   gem 'rails_12factor'
   gem 'pg'
 end
+
+# Use for tagging
+gem 'acts-as-taggable-on'

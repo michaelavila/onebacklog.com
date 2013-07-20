@@ -8,3 +8,4 @@ Feature: Backlog Item
     And I should see when the item was created
     And I should see when the item was last updated
     And I should see the status of the item
+    And I should see what the item is labeled with
