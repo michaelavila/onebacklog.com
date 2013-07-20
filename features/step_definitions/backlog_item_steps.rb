@@ -7,6 +7,7 @@ Given /^a backlog item exists$/ do
     :status => 'Status for Testing'
   )
   @backlog_item.label_list = 'First Label for Testing, Second Label for Testing'
+  @backlog_item.project_list = 'First Project for Testing, Second Project for Testing'
   @backlog_item.save
 end
 
@@ -37,5 +38,11 @@ end
 Then /^I should see what the item is labeled with$/ do
   @backlog_item.label_list.each do |label|
     expect(page).to have_content(label)
+  end
+end
+
+Then /^I should see what projects the item belongs to$/ do
+  @backlog_item.project_list.each do |project|
+    expect(page).to have_content(project)
   end
 end
