@@ -27,6 +27,7 @@ GEM
       tzinfo (~> 0.3.37)
     acts-as-taggable-on (2.4.1)
       rails (>= 3, < 5)
+    acts_as_commentable (4.0.0)
     arel (4.0.0)
     atomic (1.1.10)
     bower-rails (0.3.3)
@@ -156,6 +157,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on
+  acts_as_commentable
   bower-rails (~> 0.3.3)
   capybara (= 2.1.0)
   coffee-rails (~> 4.0.0)

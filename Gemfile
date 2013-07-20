@@ -61,3 +61,6 @@ end
 
 # Use for tagging
 gem 'acts-as-taggable-on'
+
+# Use for commenting
+gem 'acts_as_commentable'
