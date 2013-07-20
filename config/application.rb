@@ -21,8 +21,5 @@ module OnebacklogCom
     # config.i18n.default_locale = :de
 
     config.assets.paths << Rails.root.join("vendor", "assets", "components")
-
-    # Because Heroku wants me to
-    config.assets.initialize_on_precompile = false
   end
 end
