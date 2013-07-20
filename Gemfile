@@ -49,6 +49,9 @@ group :test, :development do
 
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+
+  # Use bower to manage client-side dependencies
+  gem 'bower-rails', '~> 0.3.3'
 end
 
 group :production do
