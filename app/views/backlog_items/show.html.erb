@@ -1,4 +1,11 @@
 <h1><%= @backlog_item.name %></h1>
+
+<span class='date created_at'>
+    <strong>Created:</strong> <%= @backlog_item.created_at %>
+</span>
+
+<span class='date'>
+    <strong>Last Updated:</strong> <%= @backlog_item.updated_at %>
+</span>
+
 <p><%= @backlog_item.description %></p>
-<span><%= @backlog_item.created_at %></span>
-<span><%= @backlog_item.updated_at %></span>
