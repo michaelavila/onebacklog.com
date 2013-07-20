@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-BacklogItem.remove_all
+BacklogItem.delete_all
 
 BacklogItem.create(
   :id => 1,
