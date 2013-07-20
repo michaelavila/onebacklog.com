@@ -9,5 +9,7 @@
 BacklogItem.create(
   :name => "Really important seed item",
   :description => "Well, if you didn't notice, it's really important.",
-  :status => "in iteration, not started"
+  :status => "in iteration, not started",
+  :project_list => "Really important project",
+  :label_list => "not-real"
 )
