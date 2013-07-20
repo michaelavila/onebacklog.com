@@ -8,6 +8,8 @@ Given /^a backlog item exists$/ do
     :label_list => 'First Label for Testing, Second Label for Testing',
     :project_list => 'First Project for Testing, Second Project for Testing',
   )
+  @backlog_item.comments.create :comment => "First Comment for Testing"
+  @backlog_item.comments.create :comment => "Second Comment for Testing"
 end
 
 When /^I view the item$/ do
@@ -43,5 +45,11 @@ end
 Then /^I should see what projects the item belongs to$/ do
   @backlog_item.project_list.each do |project|
     expect(page).to have_content(project)
+  end
+end
+
+Then /^I should see the item discussion$/ do
+  @backlog_item.comments.each do |comment|
+    expect(page).to have_content(comment.comment)
   end
 end
