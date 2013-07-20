@@ -8,7 +8,7 @@
 
 BacklogItem.delete_all
 
-BacklogItem.create(
+item = BacklogItem.create(
   :id => 1,
   :name => "Really important seed item",
   :description => "Well, if you didn't notice, it's really important.",
@@ -16,3 +16,4 @@ BacklogItem.create(
   :project_list => "Really important project",
   :label_list => "not-real"
 )
+item.comments.create :comment => "Really awesome comment"

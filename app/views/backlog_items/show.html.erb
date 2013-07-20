@@ -14,7 +14,8 @@
 <span><strong>Labels</strong> <%= @backlog_item.label_list %></span>
 
 <div class="discussion">
-  <%= @backlog_item.comments.each do |comment| %>
+  <strong>Comments</strong>
+  <% @backlog_item.comments.each do |comment| %>
     <p><%= comment.comment %></p>
   <% end %>
 </div>
