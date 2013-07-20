@@ -4,11 +4,10 @@ Given /^a backlog item exists$/ do
     :description => 'Description for Testing',
     :created_at => Date.yesterday,
     :updated_at => Date.today,
-    :status => 'Status for Testing'
+    :status => 'Status for Testing',
+    :label_list => 'First Label for Testing, Second Label for Testing',
+    :project_list => 'First Project for Testing, Second Project for Testing',
   )
-  @backlog_item.label_list = 'First Label for Testing, Second Label for Testing'
-  @backlog_item.project_list = 'First Project for Testing, Second Project for Testing'
-  @backlog_item.save
 end
 
 When /^I view the item$/ do
