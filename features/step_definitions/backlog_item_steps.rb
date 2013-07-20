@@ -3,7 +3,8 @@ Given /^a backlog item exists$/ do
     :name => 'Name for Testing',
     :description => 'Description for Testing',
     :created_at => Date.yesterday,
-    :updated_at => Date.today
+    :updated_at => Date.today,
+    :status => 'Status for Testing'
   )
 end
 
@@ -25,4 +26,8 @@ end
 
 Then /^I should see when the item was last updated$/ do
   expect(page).to have_content(I18n.l(@backlog_item.updated_at, :format => :notime))
+end
+
+Then /^I should see the status of the item$/ do
+  expect(page).to have_content(@backlog_item.status)
 end

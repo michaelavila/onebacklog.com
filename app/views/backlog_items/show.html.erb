@@ -6,4 +6,6 @@
   <span class='updated'><strong>Last Updated:</strong> <%= l @backlog_item.updated_at, :format => :notime %></span>
 </span>
 
+<span><%= @backlog_item.status %></span>
+
 <p class='description'><strong>Description -</strong> <%= @backlog_item.description %></p>
