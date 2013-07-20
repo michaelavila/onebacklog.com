@@ -20,9 +20,9 @@ Then /^I should see the description of the item$/ do
 end
 
 Then /^I should see when the item was created$/ do
-  expect(page).to have_content(@backlog_item.created_at)
+  expect(page).to have_content(I18n.l(@backlog_item.created_at, :format => :notime))
 end
 
 Then /^I should see when the item was last updated$/ do
-  expect(page).to have_content(@backlog_item.updated_at)
+  expect(page).to have_content(I18n.l(@backlog_item.updated_at, :format => :notime))
 end

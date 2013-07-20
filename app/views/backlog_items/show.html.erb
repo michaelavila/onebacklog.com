@@ -1,11 +1,9 @@
 <h1><%= @backlog_item.name %></h1>
 
-<span class='date created_at'>
-    <strong>Created:</strong> <%= @backlog_item.created_at %>
+<span class='dates muted'>
+  <span class='created'><strong>Created:</strong> <%= l @backlog_item.created_at, :format => :notime %></span>
+
+  <span class='updated'><strong>Last Updated:</strong> <%= l @backlog_item.updated_at, :format => :notime %></span>
 </span>
 
-<span class='date'>
-    <strong>Last Updated:</strong> <%= @backlog_item.updated_at %>
-</span>
-
-<p><%= @backlog_item.description %></p>
+<p class='description'><strong>Description -</strong> <%= @backlog_item.description %></p>
