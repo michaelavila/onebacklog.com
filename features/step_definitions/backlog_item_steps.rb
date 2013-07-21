@@ -3,7 +3,7 @@ Given /^a backlog item exists$/ do
   @backlog_item = BacklogItem.create(
     :name => 'Name for Testing',
     :description => 'Description for Testing',
-    :created_at => Date.yesterday,
+    :created_at => Date.yesterday.yesterday,
     :updated_at => Date.today,
     :status => 'Status for Testing',
     :label_list => 'First Label for Testing, Second Label for Testing',
@@ -27,11 +27,11 @@ Then /^I should see the description of the item$/ do
 end
 
 Then /^I should see when the item was created$/ do
-  expect(page).to have_content(I18n.l(@backlog_item.created_at, :format => :notime))
+  expect(page).to have_content('2 days ago')
 end
 
 Then /^I should see when the item was last updated$/ do
-  expect(page).to have_content(I18n.l(@backlog_item.updated_at, :format => :notime))
+  expect(page).to have_content('1 day ago')
 end
 
 Then /^I should see the status of the item$/ do

@@ -29,5 +29,5 @@
 </div>
 
 <div class='dates muted'>
-  Created by <strong><%= @backlog_item.creator.email %></strong> on <%= l @backlog_item.created_at, :format => :notime %> and <strong>last updated</strong> <%= l @backlog_item.updated_at, :format => :notime %>
+  Created by <strong><%= @backlog_item.creator.email %></strong> <%= time_ago_in_words @backlog_item.created_at %> ago and <strong>last updated</strong> <%= time_ago_in_words @backlog_item.updated_at %> ago
 </div>
