@@ -1,12 +1,7 @@
+<span class='position'><%= @backlog_item.position %></span>
+
 <h1><%= @backlog_item.name %></h1>
 
-<span class='dates muted'>
-  <span class='created'><strong>Created by <%= @backlog_item.creator.email %> on </strong> <%= l @backlog_item.created_at, :format => :notime %></span>
-
-  <span class='updated'><strong>Last Updated:</strong> <%= l @backlog_item.updated_at, :format => :notime %></span>
-</span>
-
-<span><strong>Position</strong> <%= @backlog_item.position %></span>
 <span><strong>Status</strong> <%= @backlog_item.status %></span>
 
 <p class='description'><strong>Description -</strong> <%= @backlog_item.description %></p>
@@ -19,4 +14,8 @@
   <% @backlog_item.comments.each do |comment| %>
     <p><%= comment.comment %></p>
   <% end %>
+</div>
+
+<div class='dates muted'>
+  Created by <strong><%= @backlog_item.creator.email %></strong> on <%= l @backlog_item.created_at, :format => :notime %> and <strong>last updated</strong> <%= l @backlog_item.updated_at, :format => :notime %>
 </div>
