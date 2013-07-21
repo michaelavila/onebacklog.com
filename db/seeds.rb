@@ -7,6 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 BacklogItem.delete_all
+Comment.delete_all
 
 item = BacklogItem.create(
   :id => 1,
