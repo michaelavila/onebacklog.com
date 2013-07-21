@@ -2,16 +2,16 @@
 
 <h1><%= @backlog_item.name %> </h1>
 
-<span><span class='muted'>status</span> <em>Currently <span class='status'><%= @backlog_item.status %></span></em><span>
-
-<span class='tags'>
-    <% @backlog_item.project_list.each do |project| %>
-      <span class='label'><%= @backlog_item.project_list %></span>
-    <% end %>
-    <% @backlog_item.label_list.each do |label| %>
-      <span class='label label-inverse'><%= @backlog_item.label_list %></span>
-    <% end %>
-</span>
+<div class='well tags'>
+    <ul class='nav nav-list'>
+        <li class='nav-header'>Projects</li>
+        <li><%= @backlog_item.project_list %></li>
+        <li class='nav-header'>Labels</li>
+        <li><%= @backlog_item.label_list %></li>
+        <li class='nav-header'>Status</li>
+        <li><small>Currently <span class='status'><%= @backlog_item.status %></span></small></li>
+    </ul>
+</div>
 
 <hr>
 
@@ -29,5 +29,5 @@
 </div>
 
 <div class='dates muted'>
-  Created by <strong><%= @backlog_item.creator.email %></strong> <%= time_ago_in_words @backlog_item.created_at %> ago and <strong>last updated</strong> <%= time_ago_in_words @backlog_item.updated_at %> ago
+  <small>Created by <strong><%= @backlog_item.creator.email %></strong> <%= time_ago_in_words @backlog_item.created_at %> ago. Last updated <%= time_ago_in_words @backlog_item.updated_at %> ago</small>
 </div>

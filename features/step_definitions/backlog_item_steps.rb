@@ -1,3 +1,5 @@
+include ActionView::Helpers::DateHelper
+
 Given /^a backlog item exists$/ do
   @creator = User.create :email => 'creator@example.com', :password => 'password longer'
   @backlog_item = BacklogItem.create(
@@ -27,11 +29,11 @@ Then /^I should see the description of the item$/ do
 end
 
 Then /^I should see when the item was created$/ do
-  expect(page).to have_content('2 days ago')
+  expect(page).to have_content(time_ago_in_words(@backlog_item.created_at))
 end
 
 Then /^I should see when the item was last updated$/ do
-  expect(page).to have_content('1 day ago')
+  expect(page).to have_content(time_ago_in_words(@backlog_item.updated_at))
 end
 
 Then /^I should see the status of the item$/ do
