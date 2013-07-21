@@ -14,6 +14,7 @@ item = BacklogItem.create(
   :description => "Well, if you didn't notice, it's really important.",
   :status => "in iteration, not started",
   :project_list => "Really important project",
-  :label_list => "not-real"
+  :label_list => "not-real",
+  :position => 1
 )
 item.comments.create :comment => "Really awesome comment"
