@@ -1,7 +1,8 @@
 include ActionView::Helpers::DateHelper
 
 Given /^a backlog item exists$/ do
-  @creator = User.create :email => 'creator@example.com', :password => 'password longer'
+  creator = User.create :email => 'creator@example.com', :password => 'password longer'
+  updater = User.create :email => 'updater@example.com', :password => 'password longer'
   @backlog_item = BacklogItem.create(
     :name => 'Name for Testing',
     :description => 'Description for Testing',
@@ -10,10 +11,11 @@ Given /^a backlog item exists$/ do
     :status => 'Status for Testing',
     :label_list => 'First Label for Testing, Second Label for Testing',
     :project_list => 'First Project for Testing, Second Project for Testing',
-    :creator => @creator,
+    :creator => creator,
+    :updater => updater,
   )
-  @backlog_item.comments.create :comment => "First Comment for Testing", :user => @creator
-  @backlog_item.comments.create :comment => "Second Comment for Testing", :user => @creator
+  @backlog_item.comments.create :comment => "First Comment for Testing", :user => creator
+  @backlog_item.comments.create :comment => "Second Comment for Testing", :user => creator
 end
 
 When /^I view the item$/ do
@@ -64,4 +66,8 @@ end
 
 Then /^I should see who created the item$/ do
   expect(page).to have_content(@backlog_item.creator.email)
+end
+
+Then /^I should see who updated the item$/ do
+  expect(page).to have_content(@backlog_item.updater.email)
 end

@@ -36,5 +36,5 @@
 </div>
 
 <div class='dates muted'>
-  <small>Created by <strong><%= @backlog_item.creator.email %></strong> <%= time_ago_in_words @backlog_item.created_at %> ago. Last updated <%= time_ago_in_words @backlog_item.updated_at %> ago</small>
+  <small>Created by <strong><%= @backlog_item.creator.email %></strong> <%= time_ago_in_words @backlog_item.created_at %> ago. Last updated <%= time_ago_in_words @backlog_item.updated_at %> ago by <strong><%= @backlog_item.updater.email %></strong>.</small>
 </div>

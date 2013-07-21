@@ -22,6 +22,7 @@ item = BacklogItem.create(
   :label_list => "item, backlog, core",
   :position => 1,
   :creator => user,
+  :updater => user,
 )
 item.comments.create :comment => "We should include task lists", :user => user
 item.comments.create :comment => "Maybe there should be multiple task lists?", :user => user
