@@ -11,3 +11,4 @@ Feature: Backlog Item
     And I should see what the item is labeled with
     And I should see what projects the item belongs to
     And I should see the item discussion
+    And I should see the position of the item in the backlog

@@ -53,3 +53,7 @@ Then /^I should see the item discussion$/ do
     expect(page).to have_content(comment.comment)
   end
 end
+
+Then /^I should see the position of the item in the backlog$/ do
+  expect(page).to have_content(@backlog_item.position)
+end
