@@ -13,8 +13,6 @@
     </ul>
 </div>
 
-<hr>
-
 <div class='description'>
   <p><%= @backlog_item.description %></p>
 </div>
@@ -22,10 +20,19 @@
 <hr>
 
 <div class="discussion">
-  <strong>Comments</strong>
-  <% @backlog_item.comments.each do |comment| %>
-    <p><%= comment.comment %></p>
-  <% end %>
+  <h4>Discussion</h4>
+  <table class='table table-striped'>
+      <% @backlog_item.comments.each do |comment| %>
+          <tr>
+              <td>
+                  <p><%= comment.comment %></p>
+                  <small>
+                      <em><%= time_ago_in_words comment.created_at %> ago</em> by <strong><%= comment.user.email || 'Anonymous' %></strong>
+                  </small>
+              </td>
+          </tr>
+      <% end %>
+  </table>
 </div>
 
 <div class='dates muted'>
