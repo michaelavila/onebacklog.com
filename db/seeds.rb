@@ -8,7 +8,7 @@
 
 User.delete_all
 
-User.create :email => 'user@example.com', :password => 'password longer'
+user = User.create :email => 'user@example.com', :password => 'password longer'
 
 BacklogItem.delete_all
 Comment.delete_all
@@ -20,6 +20,7 @@ item = BacklogItem.create(
   :status => "in iteration, not started",
   :project_list => "Really important project",
   :label_list => "not-real",
-  :position => 1
+  :position => 1,
+  :creator => user,
 )
 item.comments.create :comment => "Really awesome comment"
