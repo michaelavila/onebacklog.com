@@ -2,12 +2,24 @@
 
 <h1><%= @backlog_item.name %></h1>
 
-<span><strong>Status</strong> <%= @backlog_item.status %></span>
+<span class='tags'>
+    <% @backlog_item.project_list.each do |project| %>
+      <span class='label'><%= @backlog_item.project_list %></span>
+    <% end %>
+    <% @backlog_item.label_list.each do |label| %>
+      <span class='label label-inverse'><%= @backlog_item.label_list %></span>
+    <% end %>
+</span>
 
-<p class='description'><strong>Description -</strong> <%= @backlog_item.description %></p>
+<span class='status'><%= @backlog_item.status %></span>
 
-<span><strong>Projects</strong> <%= @backlog_item.project_list %></span>
-<span><strong>Labels</strong> <%= @backlog_item.label_list %></span>
+<hr>
+
+<p class='description'>
+  <%= @backlog_item.description %>
+</p>
+
+<hr>
 
 <div class="discussion">
   <strong>Comments</strong>
