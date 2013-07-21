@@ -65,3 +65,9 @@ gem 'acts-as-taggable-on'
 
 # Use for commenting
 gem 'acts_as_commentable'
+
+# Use for user management
+gem 'devise', '3.0.0'
+
+# Use for foreign key addition migrations
+gem 'foreigner'

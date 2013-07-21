@@ -1,7 +1,7 @@
 <h1><%= @backlog_item.name %></h1>
 
 <span class='dates muted'>
-  <span class='created'><strong>Created:</strong> <%= l @backlog_item.created_at, :format => :notime %></span>
+  <span class='created'><strong>Created by <%= @backlog_item.creator.email %> on </strong> <%= l @backlog_item.created_at, :format => :notime %></span>
 
   <span class='updated'><strong>Last Updated:</strong> <%= l @backlog_item.updated_at, :format => :notime %></span>
 </span>

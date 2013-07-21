@@ -1,4 +1,5 @@
 Given /^a backlog item exists$/ do
+  @creator = User.create :email => 'creator@example.com', :password => 'password longer'
   @backlog_item = BacklogItem.create(
     :name => 'Name for Testing',
     :description => 'Description for Testing',
@@ -7,6 +8,7 @@ Given /^a backlog item exists$/ do
     :status => 'Status for Testing',
     :label_list => 'First Label for Testing, Second Label for Testing',
     :project_list => 'First Project for Testing, Second Project for Testing',
+    :creator => @creator,
   )
   @backlog_item.comments.create :comment => "First Comment for Testing"
   @backlog_item.comments.create :comment => "Second Comment for Testing"
@@ -56,4 +58,8 @@ end
 
 Then /^I should see the position of the item in the backlog$/ do
   expect(page).to have_content(@backlog_item.position)
+end
+
+Then /^I should see who created the item$/ do
+  expect(page).to have_content(@backlog_item.creator.email)
 end

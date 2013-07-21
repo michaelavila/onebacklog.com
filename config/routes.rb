@@ -1,4 +1,5 @@
 OnebacklogCom::Application.routes.draw do
+  devise_for :users
   get '/backlog_items/:id', to: 'backlog_items#show', as: 'backlog_item'
 
   # The priority is based upon order of creation: first created -> highest priority.
