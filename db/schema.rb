@@ -11,16 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130721004532) do
+ActiveRecord::Schema.define(version: 20130721090048) do
 
   create_table "backlog_items", force: true do |t|
     t.string   "name"
-    t.string   "description"
+    t.text     "description", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "status"
     t.integer  "position"
     t.integer  "creator_id"
+    t.integer  "updater_id"
   end
 
   create_table "comments", force: true do |t|

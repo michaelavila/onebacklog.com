@@ -8,19 +8,21 @@
 
 User.delete_all
 
-user = User.create :email => 'user@example.com', :password => 'password longer'
+user = User.create :email => 'me@onebacklog.com', :password => 'password longer'
 
 BacklogItem.delete_all
 Comment.delete_all
 
 item = BacklogItem.create(
   :id => 1,
-  :name => "Really important seed item",
-  :description => "Well, if you didn't notice, it's really important.",
-  :status => "in iteration, not started",
-  :project_list => "Really important project",
-  :label_list => "not-real",
+  :name => "View backlog item",
+  :description => "A page should be dedicated to each individual backlog item. On this page you should be able to view the short name, long description, current status, position in backlog, discussions between team members, creator, updater, timestamps, label tags, project tags and whatever else makes sense. Most of these items can be edited from this page. It should also look nice.",
+  :status => "in iteration, started but not finished",
+  :project_list => "onebacklog",
+  :label_list => "item, backlog, core",
   :position => 1,
   :creator => user,
+  :updater => user,
 )
-item.comments.create :comment => "Really awesome comment"
+item.comments.create :comment => "We should include task lists", :user => user
+item.comments.create :comment => "Maybe there should be multiple task lists?", :user => user

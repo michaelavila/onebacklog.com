@@ -13,21 +13,42 @@
  *= require_tree .
  */
 
+$orange: #FFAA17
+
 body
   background-image: url('/squairy_light.png')
 
-div.content
-  padding: 5px 20px 20px 20px
-  margin: 100px
+div.container
+  margin-top: 60px
   background-color: #FFF
+  padding: 30px
+  margin-bottom: 60px
+
+div.description
+  font-size: 16px
 
 h1
-  padding-bottom: 10px
+  position: relative
+  left: -40px
 
-span.dates
-  font-size: 12px
-  span.created
-    padding-right: 35px
+span.position
+  background: $orange
+  border-radius: 0.8em
+  -moz-border-radius: 0.8em
+  -webkit-border-radius: 0.8em
+  color: #FFF
+  display: inline-block
+  font-weight: bold
+  line-height: 1.6em
+  margin-right: 5px
+  text-align: center
+  width: 1.6em
+  font-size: 30px
+  float: left
+  position: relative
+  left: -55px
+  top: 5px
 
-p.description
-  padding-top: 20px
+div.discussion
+  h4
+    padding-bottom: 15px
