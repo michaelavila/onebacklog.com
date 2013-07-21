@@ -1,6 +1,8 @@
 <span class='position'><%= @backlog_item.position %></span>
 
-<h1><%= @backlog_item.name %></h1>
+<h1><%= @backlog_item.name %> </h1>
+
+<span><span class='muted'>status</span> <em>Currently <span class='status'><%= @backlog_item.status %></span></em><span>
 
 <span class='tags'>
     <% @backlog_item.project_list.each do |project| %>
@@ -11,13 +13,11 @@
     <% end %>
 </span>
 
-<span class='status'><%= @backlog_item.status %></span>
-
 <hr>
 
-<p class='description'>
-  <%= @backlog_item.description %>
-</p>
+<div class='description'>
+  <p><%= @backlog_item.description %></p>
+</div>
 
 <hr>
 
