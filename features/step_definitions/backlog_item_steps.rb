@@ -12,8 +12,8 @@ Given /^a backlog item exists$/ do
     :project_list => 'First Project for Testing, Second Project for Testing',
     :creator => @creator,
   )
-  @backlog_item.comments.create :comment => "First Comment for Testing"
-  @backlog_item.comments.create :comment => "Second Comment for Testing"
+  @backlog_item.comments.create :comment => "First Comment for Testing", :user => @creator
+  @backlog_item.comments.create :comment => "Second Comment for Testing", :user => @creator
 end
 
 When /^I view the item$/ do
