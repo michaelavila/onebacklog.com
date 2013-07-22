@@ -1,13 +1,12 @@
 OnebacklogCom::Application.routes.draw do
+  # The priority is based upon order of creation: first created -> highest priority.
+  # See how all your routes lay out with "rake routes".
   devise_for :users, :path => 'accounts'
 
   get '/backlog/:backlog_item_id', to: 'backlog_items#show', as: 'backlog_item'
 
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
