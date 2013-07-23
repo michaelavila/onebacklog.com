@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130721090048) do
+ActiveRecord::Schema.define(version: 20130723053918) do
 
   create_table "backlog_items", force: true do |t|
     t.string   "name"
@@ -22,6 +22,11 @@ ActiveRecord::Schema.define(version: 20130721090048) do
     t.integer  "position"
     t.integer  "creator_id"
     t.integer  "updater_id"
+  end
+
+  create_table "checklist_items", force: true do |t|
+    t.integer "backlog_item_id"
+    t.text    "description"
   end
 
   create_table "comments", force: true do |t|

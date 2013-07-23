@@ -16,6 +16,8 @@ Given /^a backlog item exists$/ do
   )
   @backlog_item.comments.create :comment => "First Comment for Testing", :user => creator
   @backlog_item.comments.create :comment => "Second Comment for Testing", :user => creator
+  @backlog_item.checklist_items.create :description => "First Checklist Item for Testing"
+  @backlog_item.checklist_items.create :description => "Second Checklist Item for Testing"
 end
 
 When /^I view the item$/ do
@@ -70,4 +72,10 @@ end
 
 Then /^I should see who updated the item$/ do
   expect(page).to have_content(@backlog_item.updater.email)
+end
+
+Then /^I should see the checklist for the item$/ do
+  @backlog_item.checklist_items.each do |checklist_item|
+    expect(page).to have_content(checklist_item.description)
+  end
 end
