@@ -65,7 +65,7 @@
 
   <div class='row'>
     <div class='span12 dates muted'>
-    <small>Created by <strong><%= @backlog_item.creator.email %></strong> <%= time_ago_in_words @backlog_item.created_at %> ago. Last updated <%= time_ago_in_words @backlog_item.updated_at %> ago by <strong><%= @backlog_item.updater.email %></strong>.</small>
+    <small>Created by <strong><%= @backlog_item.creator.email %></strong> <%= time_ago_in_words @backlog_item.created_at %> ago. Last updated by <strong><%= @backlog_item.updater.email %></strong> <%= time_ago_in_words @backlog_item.updated_at %> ago.</small>
     </div>
   </div>
 </div>
