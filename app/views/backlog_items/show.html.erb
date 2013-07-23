@@ -20,7 +20,7 @@
               <li class='nav-header'>Projects</li>
               <li><%= @backlog_item.project_list %></li>
               <li class='nav-header'>Status</li>
-              <li><small>Currently being worked on by <span class='label label-inverse'>@michael</span> and <span class='label label-inverse'>@brian</span>. <span class='status'><%= @backlog_item.status %>.</span></small></li>
+              <li><small>Currently being worked on by <span class='label label-inverse'>@michael</span> and <span class='label label-inverse'>@brian</span>. <span class='status'><%= @backlog_item.status.capitalize %>.</span></small></li>
               <li class='nav-header'>Labels</li>
               <li><%= @backlog_item.label_list %></li>
           </ul>
