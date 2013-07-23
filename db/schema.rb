@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130723053918) do
+ActiveRecord::Schema.define(version: 20130723060329) do
 
   create_table "backlog_items", force: true do |t|
     t.string   "name"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20130723053918) do
   create_table "checklist_items", force: true do |t|
     t.integer "backlog_item_id"
     t.text    "description"
+    t.boolean "completed",       default: false
   end
 
   create_table "comments", force: true do |t|

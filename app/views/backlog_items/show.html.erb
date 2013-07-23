@@ -33,9 +33,9 @@
           <h4>Checklist</h4>
           <table class='table table-striped table-noborder'>
               <% @backlog_item.checklist_items.each do |checklist_item| %>
-                  <tr><td>
+                <tr<% if checklist_item.completed %> class='muted'<% end %>><td>
                     <label class='checkbox'>
-                      <input type='checkbox' value=''>
+                      <input type='checkbox' value=''<% if checklist_item.completed %>checked<% end %>>
                       <%= checklist_item.description %>
                     </label>
                   </td></tr>
