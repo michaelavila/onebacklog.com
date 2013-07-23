@@ -32,11 +32,11 @@
       <div class='span5'>
           <h4>Checklist</h4>
           <table class='table table-striped table-noborder'>
-              <% ['name', 'position', 'description', 'projects', 'status', 'labels', 'discussion', 'checklist', 'workers'].each do |checklist_item| %>
+              <% @backlog_item.checklist_items.each do |checklist_item| %>
                   <tr><td>
                     <label class='checkbox'>
                       <input type='checkbox' value=''>
-                      <%= checklist_item %>
+                      <%= checklist_item.description %>
                     </label>
                   </td></tr>
               <% end %>
