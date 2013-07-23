@@ -1,56 +1,71 @@
-<div class='row'>
-  <div class='span8'>
-      <div class='row'>
-          <div class='span8'>
-              <span class='position'><%= @backlog_item.position %></span>
-              <h1><%= @backlog_item.name %> </h1>
-          </div>
-      </div>
-      <br>
-      <div class='row'>
-          <div class='span8 description'>
-            <p><%= @backlog_item.description %></p>
-          </div>
-      </div>
-  </div>
-  <div class='span4'>
-    <div class='well'>
-        <ul class='nav nav-list'>
-            <li class='nav-header'>Projects</li>
-            <li><%= @backlog_item.project_list %></li>
-            <li class='nav-header'>Status</li>
-            <li><small>Currently <span class='status'><%= @backlog_item.status %></span></small></li>
-            <li class='nav-header'>Labels</li>
-            <li><%= @backlog_item.label_list %></li>
-        </ul>
-    </div>
-  </div>
-</div>
-
-<div class='row'>
-    <div class='span5'>
-        <div class="discussion">
-            <h4>Discussion</h4>
-            <table class='table table-striped'>
-                <% @backlog_item.comments.each do |comment| %>
-                    <tr>
-                        <td>
-                            <p><%= comment.comment %></p>
-                            <small>
-                                <em><%= time_ago_in_words comment.created_at %> ago</em> by <strong><%= comment.user.email || 'Anonymous' %></strong>
-                            </small>
-                        </td>
-                    </tr>
-                <% end %>
-            </table>
+<div class='backlog_items'>
+  <div class='row'>
+    <div class='span8'>
+        <div class='row'>
+            <div class='span8'>
+                <span class='position'><%= @backlog_item.position %></span>
+                <h1><%= @backlog_item.name %> </h1>
+            </div>
+        </div>
+        <br>
+        <div class='row'>
+            <div class='span8 description'>
+              <p><%= @backlog_item.description %></p>
+            </div>
         </div>
     </div>
-</div>
+    <div class='span4'>
+      <div class='well'>
+          <ul class='nav nav-list'>
+              <li class='nav-header'>Projects</li>
+              <li><%= @backlog_item.project_list %></li>
+              <li class='nav-header'>Status</li>
+              <li><small>Currently <span class='status'><%= @backlog_item.status %></span></small></li>
+              <li class='nav-header'>Labels</li>
+              <li><%= @backlog_item.label_list %></li>
+          </ul>
+      </div>
+    </div>
+  </div>
 
-<div class='row'> <div class='span12'> <hr> </div> </div>
+  <div class='row'>
+      <div class='span5'>
+          <h4>Checklist</h4>
+          <table class='table table-striped table-noborder'>
+              <% @backlog_item.checklist_items.each do |checklist_item| %>
+                <tr<% if checklist_item.completed %> class='muted'<% end %>><td>
+                    <label class='checkbox'>
+                      <input type='checkbox' value=''<% if checklist_item.completed %>checked<% end %>>
+                      <%= checklist_item.description %>
+                    </label>
+                  </td></tr>
+              <% end %>
+          </table>
+      </div>
+      <div class='span7'>
+          <div>
+              <h4>Discussion</h4>
+              <table class='table table-striped table-noborder discussion'>
+                  <% @backlog_item.comments.each do |comment| %>
+                      <tr>
+                          <td>
+                              <p><%= comment.comment %></p>
+                              <small>
+                                  <em><%= time_ago_in_words comment.created_at %> ago</em> by <strong><%= comment.user.email || 'Anonymous' %></strong>
+                              </small>
+                          </td>
+                      </tr>
+                  <% end %>
+              </table>
+          </div>
+      </div>
+  </div>
 
-<div class='row'>
-  <div class='span12 dates muted'>
-  <small>Created by <strong><%= @backlog_item.creator.email %></strong> <%= time_ago_in_words @backlog_item.created_at %> ago. Last updated <%= time_ago_in_words @backlog_item.updated_at %> ago by <strong><%= @backlog_item.updater.email %></strong>.</small>
+  <div class='row'> <div class='span12'> <hr> </div> </div>
+
+  <div class='row'>
+    <div class='span12 dates muted'>
+    <small>Created by <strong><%= @backlog_item.creator.email %></strong> <%= time_ago_in_words @backlog_item.created_at %> ago. Last updated by <strong><%= @backlog_item.updater.email %></strong> <%= time_ago_in_words @backlog_item.updated_at %> ago.</small>
+    </div>
   </div>
 </div>

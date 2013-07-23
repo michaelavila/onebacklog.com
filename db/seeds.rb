@@ -26,3 +26,9 @@ item = BacklogItem.create(
 )
 item.comments.create :comment => "We should include task lists", :user => user
 item.comments.create :comment => "Maybe there should be multiple task lists?", :user => user
+
+ChecklistItem.delete_all
+completed = ['name', 'position', 'description', 'projects', 'status', 'labels', 'discussion', 'checklist']
+['name', 'position', 'description', 'projects', 'status', 'labels', 'discussion', 'checklist', 'workers'].each do |checklist_item|
+  item.checklist_items.create :description => checklist_item, :completed => completed.include?(checklist_item)
+end
