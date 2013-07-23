@@ -30,6 +30,19 @@
 
   <div class='row'>
       <div class='span5'>
+          <h4>Checklist</h4>
+          <table class='table table-striped checklist'>
+              <% ['name', 'position', 'description', 'projects', 'status', 'labels', 'discussion', 'checklist', 'workers'].each do |checklist_item| %>
+                  <tr><td>
+                    <label class='checkbox'>
+                      <input type='checkbox' value=''>
+                      <%= checklist_item %>
+                    </label>
+                  </td></tr>
+              <% end %>
+          </table>
+      </div>
+      <div class='span7'>
           <div class="discussion">
               <h4>Discussion</h4>
               <table class='table table-striped'>
