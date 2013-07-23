@@ -8,4 +8,6 @@ Statuses could be things like:
 - in iteration, not started
 - in iteration, started but not finished
 - in iteration, finished
+- in iteration, deleted
 - finished
+- deleted
