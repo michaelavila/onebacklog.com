@@ -16,10 +16,9 @@ Comment.delete_all
 item = BacklogItem.create(
   :id => 1,
   :name => "View backlog item",
-  :description => "A page should be dedicated to each individual backlog item. On this page you should be able to view the short name, long description, current status, position in backlog, discussions between team members, creator, updater, timestamps, label tags, project tags and whatever else makes sense. Most of these items can be edited from this page. It should also look nice.",
+  :description => "A page should be dedicated to each individual backlog item. On this page you should be able to view the short name, long description, current status, position in backlog, discussions between team members, creator, updater, timestamps, project tags and whatever else makes sense. Most of these items can be edited from this page. It should also look nice.",
   :status => "in iteration, started but not finished",
   :project_list => "onebacklog",
-  :label_list => "item, backlog, core",
   :position => 1,
   :creator => user,
   :updater => user,
@@ -28,7 +27,7 @@ item.comments.create :comment => "We should include task lists", :user => user
 item.comments.create :comment => "Maybe there should be multiple task lists?", :user => user
 
 ChecklistItem.delete_all
-completed = ['name', 'position', 'description', 'projects', 'status', 'labels', 'discussion', 'checklist']
-['name', 'position', 'description', 'projects', 'status', 'labels', 'discussion', 'checklist', 'workers'].each do |checklist_item|
+completed = ['name', 'position', 'description', 'projects', 'status', 'discussion', 'checklist']
+['name', 'position', 'description', 'projects', 'status', 'discussion', 'checklist', 'workers'].each do |checklist_item|
   item.checklist_items.create :description => checklist_item, :completed => completed.include?(checklist_item)
 end

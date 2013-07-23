@@ -9,7 +9,6 @@ Given /^a backlog item exists$/ do
     :created_at => Date.yesterday.yesterday,
     :updated_at => Date.today,
     :status => 'Status for Testing',
-    :label_list => 'First Label for Testing, Second Label for Testing',
     :project_list => 'First Project for Testing, Second Project for Testing',
     :creator => creator,
     :updater => updater,
@@ -42,12 +41,6 @@ end
 
 Then /^I should see the status of the item$/ do
   expect(page).to have_content(@backlog_item.status.capitalize)
-end
-
-Then /^I should see what the item is labeled with$/ do
-  @backlog_item.label_list.each do |label|
-    expect(page).to have_content(label)
-  end
 end
 
 Then /^I should see what projects the item belongs to$/ do
