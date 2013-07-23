@@ -15,16 +15,18 @@
         </div>
     </div>
     <div class='span4'>
-      <div class='well'>
-          <ul class='nav nav-list'>
-              <li class='nav-header'>Projects</li>
-              <li><%= @backlog_item.project_list %></li>
-              <li class='nav-header'>Status</li>
-              <li><small>Currently being worked on by <span class='label label-inverse'>@michael</span> and <span class='label label-inverse'>@brian</span>. <span class='status'><%= @backlog_item.status.capitalize %>.</span></small></li>
-              <li class='nav-header'>Labels</li>
-              <li><%= @backlog_item.label_list %></li>
-          </ul>
-      </div>
+      <ul class='nav nav-list well'>
+          <li class='nav-header'>Status</li>
+          <li class='warning'><strong><%= @backlog_item.status.capitalize %>.</strong></li>
+          <li class='nav-header'>People</li>
+          <% ['michael', 'brian'].each do |person| %>
+              <li><small><%= person %></small></li>
+          <% end %>
+          <li class='nav-header'>Projects</li>
+          <li><small><%= @backlog_item.project_list %></small></li>
+          <li class='nav-header'>Labels</li>
+          <li><small><%= @backlog_item.label_list %></small></li>
+      </ul>
     </div>
   </div>
 

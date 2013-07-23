@@ -41,7 +41,7 @@ Then /^I should see when the item was last updated$/ do
 end
 
 Then /^I should see the status of the item$/ do
-  expect(page).to have_content(@backlog_item.status)
+  expect(page).to have_content(@backlog_item.status.capitalize)
 end
 
 Then /^I should see what the item is labeled with$/ do
