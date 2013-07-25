@@ -20,7 +20,7 @@
           <li class='warning'><strong><%= @backlog_item.status.capitalize %>.</strong></li>
           <li class='nav-header'>People</li>
           <li><% ['me@michaelavila.com', 'btriley@gmail.com'].each do |person| %>
-            <%= image_tag User.new(:email => person).avatar %>
+            <%= image_tag User.new(:email => person).avatar, alt: person %>
           <% end %></li>
           <li class='nav-header'>Projects</li>
           <li><small><%= @backlog_item.project_list %></small></li>
