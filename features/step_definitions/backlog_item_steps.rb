@@ -23,6 +23,10 @@ When /^I view the item$/ do
   visit backlog_item_path(@backlog_item.id)
 end
 
+When /^I complete a checklist item$/ do
+  find(:css, "#checklist_item_id__1_").set(true)
+end
+
 Then /^I should see the name of the item$/ do
   expect(page).to have_content(@backlog_item.name)
 end
@@ -71,4 +75,9 @@ Then /^I should see the checklist for the item$/ do
   @backlog_item.checklist_items.each do |checklist_item|
     expect(page).to have_content(checklist_item.description)
   end
+end
+
+Then /^the item should be completed$/ do
+  step "I view the item"
+  find("#checklist_item_id__1_").should be_checked
 end
