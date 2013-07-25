@@ -19,9 +19,9 @@
           <li class='nav-header'>Status</li>
           <li class='warning'><strong><%= @backlog_item.status.capitalize %>.</strong></li>
           <li class='nav-header'>People</li>
-          <% ['michael', 'brian'].each do |person| %>
-              <li><small><%= person %></small></li>
-          <% end %>
+          <li><% ['me@michaelavila.com', 'btriley@gmail.com'].each do |person| %>
+            <%= image_tag User.new(:email => person).avatar %>
+          <% end %></li>
           <li class='nav-header'>Projects</li>
           <li><small><%= @backlog_item.project_list %></small></li>
       </ul>
