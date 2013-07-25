@@ -35,7 +35,7 @@
               <% @backlog_item.checklist_items.each do |checklist_item| %>
                 <tr<% if checklist_item.completed %> class='muted'<% end %>><td>
                     <label class='checkbox'>
-                      <input type='checkbox' value=''<% if checklist_item.completed %>checked<% end %>>
+                      <%= check_box_tag 'checklist', checklist_item.id, checklist_item.completed %>
                       <%= checklist_item.description %>
                     </label>
                   </td></tr>
