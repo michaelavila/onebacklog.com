@@ -33,5 +33,5 @@ completed = ['name', 'position', 'description', 'projects', 'status', 'discussio
   item.checklist_items.create :description => checklist_item, :completed => completed.include?(checklist_item)
 end
 
-Membership.delete_all
-Membership.create :user_id => worker.id, :backlog_item => item
+Assignment.delete_all
+Assignment.create :user_id => worker.id, :backlog_item => item

@@ -1,6 +1,6 @@
-class CreateMemberships < ActiveRecord::Migration
+class CreateAssignments < ActiveRecord::Migration
   def change
-    create_table :memberships do |t|
+    create_table :assignments do |t|
       t.integer :user_id
       t.integer :backlog_item_id
       t.timestamps
