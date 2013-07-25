@@ -9,6 +9,7 @@
 User.delete_all
 
 user = User.create :email => 'me@onebacklog.com', :password => 'password longer'
+worker = User.create :email => 'worker@onebacklog.com', :password => '123456789'
 
 BacklogItem.delete_all
 Comment.delete_all
@@ -31,3 +32,6 @@ completed = ['name', 'position', 'description', 'projects', 'status', 'discussio
 ['name', 'position', 'description', 'projects', 'status', 'discussion', 'checklist', 'workers'].each do |checklist_item|
   item.checklist_items.create :description => checklist_item, :completed => completed.include?(checklist_item)
 end
+
+Membership.delete_all
+Membership.create :user_id => worker.id, :backlog_item => item
