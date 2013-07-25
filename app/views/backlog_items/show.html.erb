@@ -19,8 +19,8 @@
           <li class='nav-header'>Status</li>
           <li class='warning'><strong><%= @backlog_item.status.capitalize %>.</strong></li>
           <li class='nav-header'>Current workers</li>
-          <% @backlog_item.memberships.each do |membership| %>
-              <li><small><%= membership.user.email %></small></li>
+          <% @backlog_item.assignments.each do |assignment| %>
+              <li><small><%= assignment.user.email %></small></li>
           <% end %>
           <li class='nav-header'>Projects</li>
           <li><small><%= @backlog_item.project_list %></small></li>
