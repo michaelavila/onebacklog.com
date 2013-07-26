@@ -26,13 +26,12 @@ view_item = BacklogItem.create(
   :position => 1,
   :creator => user,
   :updater => user,
-  :complete => true,
 )
 view_item.comments.create :comment => "We should include task lists", :user => user
 view_item.comments.create :comment => "Maybe there should be multiple task lists?", :user => user
 
-completed = ['name', 'position', 'description', 'projects', 'status', 'discussion', 'checklist']
-['name', 'position', 'description', 'projects', 'status', 'discussion', 'checklist', 'workers'].each do |checklist_item|
+completed = ['name', 'position', 'description', 'projects', 'status', 'discussion', 'checklist', 'workers']
+['name', 'position', 'description', 'projects', 'status', 'discussion', 'checklist', 'workers', 'empty states for workers, discussion, checklist, projects, and description'].each do |checklist_item|
   view_item.checklist_items.create :description => checklist_item, :completed => completed.include?(checklist_item)
 end
 
@@ -43,7 +42,7 @@ Assignment.create :user_id => worker.id, :backlog_item => view_item
 edit_item = BacklogItem.create(
   :id => 2,
   :name => "Edit backlog item",
-  :description => "The view backlog item page should double as an edit page",
+  :description => "When looking at a backlog item you should be able to manage the checklist, take part in the discussion, associate with projects, and edit the description and name. These edits should also affect the updated part of the item.",
   :status => "in iteration, started but not finished",
   :project_list => "onebacklog",
   :position => 2,
@@ -51,7 +50,7 @@ edit_item = BacklogItem.create(
   :updater => user,
 )
 
-completed = []
-['name', 'position', 'description', 'projects', 'status', 'discussion', 'checklist', 'workers'].each do |checklist_item|
+completed = ['toggle checklist item']
+['edit name', 'edit description', 'add projects', 'remove projects', 'add to discussion', 'add checklist item', 'toggle checklist item', 'remove checklist item', 'edit checklist item', 'edits change updater'].each do |checklist_item|
   edit_item.checklist_items.create :description => checklist_item, :completed => completed.include?(checklist_item)
 end
