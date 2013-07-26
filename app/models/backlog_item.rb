@@ -1,5 +1,6 @@
 class BacklogItem < ActiveRecord::Base
   has_many :checklist_items
+  has_many :memberships
   belongs_to :creator, :class_name => 'User'
   belongs_to :updater, :class_name => 'User'
   acts_as_taggable_on :projects

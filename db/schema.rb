@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130723060329) do
+ActiveRecord::Schema.define(version: 20130725051019) do
 
   create_table "backlog_items", force: true do |t|
     t.string   "name"
@@ -44,6 +44,13 @@ ActiveRecord::Schema.define(version: 20130723060329) do
   add_index "comments", ["commentable_id"], name: "index_comments_on_commentable_id"
   add_index "comments", ["commentable_type"], name: "index_comments_on_commentable_type"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "memberships", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "backlog_item_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"

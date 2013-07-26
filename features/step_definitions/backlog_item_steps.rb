@@ -3,6 +3,7 @@ include ActionView::Helpers::DateHelper
 Given /^a backlog item exists$/ do
   creator = User.create :email => 'creator@example.com', :password => 'password longer'
   updater = User.create :email => 'updater@example.com', :password => 'password longer'
+  @current_worker = User.create :email => 'worker@example.com', :password => 'password longer'
   @backlog_item = BacklogItem.create(
     :name => 'Name for Testing',
     :description => 'Description for Testing',
@@ -17,6 +18,7 @@ Given /^a backlog item exists$/ do
   @backlog_item.comments.create :comment => "Second Comment for Testing", :user => creator
   @backlog_item.checklist_items.create :description => "First Checklist Item for Testing"
   @backlog_item.checklist_items.create :description => "Second Checklist Item for Testing"
+  @current_worker.memberships.create :backlog_item => @backlog_item
 end
 
 When /^I view the item$/ do
@@ -79,4 +81,8 @@ end
 
 Then /^the item should be completed$/ do
   page.should have_field("First Checklist Item for Testing", :checked => true)
+end
+
+Then /^I should see who is working on the item$/ do
+  expect(page).to have_content(@current_worker.email)
 end
