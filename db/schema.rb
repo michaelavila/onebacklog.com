@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130725051019) do
+ActiveRecord::Schema.define(version: 20130726014151) do
 
   create_table "assignments", force: true do |t|
     t.integer  "user_id"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20130725051019) do
     t.integer  "position"
     t.integer  "creator_id"
     t.integer  "updater_id"
+    t.boolean  "complete",                default: false
   end
 
   create_table "checklist_items", force: true do |t|

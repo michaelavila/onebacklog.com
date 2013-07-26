@@ -32,9 +32,7 @@ div.description
     position: relative
     left: -40px
 
-span.position
-  color: #fcf8e3
-  background: #c09853
+span#position
   border-radius: 0.8em
   -moz-border-radius: 0.8em
   -webkit-border-radius: 0.8em
@@ -50,6 +48,15 @@ span.position
   left: -55px
   top: 5px
 
+span.position-warning
+  color: #fcf8e3
+  background: #c09853
+
+span.position-success
+  color: #dff0d8
+  background: #468847
+
+
 table.table-noborder
   tr
     td
@@ -61,11 +68,17 @@ table.discussion
       padding: 15px
 
 ul.nav, ul.nav-list
-  .warning
-    background-color: #fcf8e3
-    color: #c09853
+  #status
     margin-left: -15px
     margin-right: -15px
     padding-left: 15px
     padding-top: 10px
     padding-bottom: 10px
+
+  #status.warning
+    background-color: #fcf8e3
+    color: #c09853
+
+  #status.success
+    background-color: #dff0d8
+    color: #468847

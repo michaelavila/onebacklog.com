@@ -3,7 +3,7 @@
     <div class='span8'>
         <div class='row'>
             <div class='span8'>
-                <span class='position'><%= @backlog_item.position %></span>
+                <span id='position' class='<% if @backlog_item.complete %>position-success<% else %>position-warning<% end %>'><%= @backlog_item.position %></span>
                 <h1><%= @backlog_item.name %> </h1>
             </div>
         </div>
@@ -17,7 +17,7 @@
     <div class='span4'>
       <ul class='nav nav-list well'>
           <li class='nav-header'>Status</li>
-          <li class='warning'><strong><%= @backlog_item.status.capitalize %>.</strong></li>
+          <li id='status' class='<% if @backlog_item.complete %>success<% else %>warning<% end %>'><strong><%= @backlog_item.status.capitalize %>.</strong></li>
           <li class='nav-header'>Current workers</li>
           <% @backlog_item.assignments.each do |assignment| %>
               <li><small><%= assignment.user.email %></small></li>
