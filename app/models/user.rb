@@ -5,4 +5,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :memberships
+
+  def avatar
+    "http://gravatar.com/avatar/#{Digest::MD5.hexdigest(email)}.png?s=24"
+  end
 end
