@@ -35,7 +35,7 @@
               <% @backlog_item.checklist_items.each do |checklist_item| %>
                 <tr<% if checklist_item.completed %> class='muted'<% end %>><td>
                     <label class='checkbox'>
-                      <%= check_box_tag "checklist_item[id='#{checklist_item.id}']", checklist_item.id, checklist_item.completed %>
+                      <%= check_box_tag "checklist_item[id='#{checklist_item.id}']", checklist_item.id, checklist_item.completed, :onchange => "$.get('#{toggle_checklist_item_path(checklist_item)}')" %>
                       <%= checklist_item.description %>
                     </label>
                   </td></tr>

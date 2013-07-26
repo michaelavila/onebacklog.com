@@ -24,7 +24,7 @@ When /^I view the item$/ do
 end
 
 When /^I complete a checklist item$/ do
-  find(:css, "#checklist_item_id__1_").set(true)
+  check "First Checklist Item for Testing"
 end
 
 Then /^I should see the name of the item$/ do
@@ -78,6 +78,5 @@ Then /^I should see the checklist for the item$/ do
 end
 
 Then /^the item should be completed$/ do
-  step "I view the item"
-  find("#checklist_item_id__1_").should be_checked
+  page.should have_field("First Checklist Item for Testing", :checked => true)
 end
