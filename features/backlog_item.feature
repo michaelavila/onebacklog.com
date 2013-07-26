@@ -15,3 +15,9 @@ Feature: Backlog Item
     And I should see the position of the item in the backlog
     And I should see the checklist for the item
     And I should see who is working on the item
+
+  Scenario: Complete checklist item
+    Given a backlog item exists
+    And I view the item
+    When I complete a checklist item
+    Then the item should be completed

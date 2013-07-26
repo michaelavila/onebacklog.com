@@ -25,6 +25,10 @@ When /^I view the item$/ do
   visit backlog_item_path(@backlog_item.id)
 end
 
+When /^I complete a checklist item$/ do
+  check "First Checklist Item for Testing"
+end
+
 Then /^I should see the name of the item$/ do
   expect(page).to have_content(@backlog_item.name)
 end
@@ -73,6 +77,10 @@ Then /^I should see the checklist for the item$/ do
   @backlog_item.checklist_items.each do |checklist_item|
     expect(page).to have_content(checklist_item.description)
   end
+end
+
+Then /^the item should be completed$/ do
+  page.should have_field("First Checklist Item for Testing", :checked => true)
 end
 
 Then /^I should see who is working on the item$/ do
