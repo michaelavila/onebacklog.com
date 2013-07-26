@@ -18,7 +18,7 @@ Given /^a backlog item exists$/ do
   @backlog_item.comments.create :comment => "Second Comment for Testing", :user => creator
   @backlog_item.checklist_items.create :description => "First Checklist Item for Testing"
   @backlog_item.checklist_items.create :description => "Second Checklist Item for Testing"
-  @current_worker.memberships.create :backlog_item => @backlog_item
+  @current_worker.assignments.create :backlog_item => @backlog_item
 end
 
 When /^I view the item$/ do
