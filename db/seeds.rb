@@ -46,7 +46,7 @@ edit_item = BacklogItem.create(
   :description => "The view backlog item page should double as an edit page",
   :status => "in iteration, started but not finished",
   :project_list => "onebacklog",
-  :position => 1,
+  :position => 2,
   :creator => user,
   :updater => user,
 )
