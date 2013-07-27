@@ -30,7 +30,7 @@ When /^I complete a checklist item$/ do
 end
 
 When /^I remove a checklist item$/ do
-  find(:xpath, "//a[contains(@href, '/checklist_items/1/delete')]").click
+  find("#checklist_item_1_delete").click
 end
 
 Then /^I should see the name of the item$/ do
@@ -92,6 +92,5 @@ Then /^I should see who is working on the item$/ do
 end
 
 Then /^the item should be removed$/ do
-  step 'I view the item'
   expect(page).to_not have_field("First Checklist Item for Testing")
 end
