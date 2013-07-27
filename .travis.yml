@@ -10,6 +10,7 @@ script:
 - rake
 deploy:
   provider: heroku
+  strategy: git
   app: onebacklog
   api_key:
     secure: CSmgnjpNNXUbn85g0480lsjULDKjQqbzUpOnHiDisgN0MxLIXfzMd9nBjudCKkcoeYgOINxzm56JNBbQh554zHLQM+kwlPdvSRBwoWtJCK5mstvbUb0ZiNpfS7alsrZbhR384dUd2vKSzsAsXb3WZsQ5cCJeBoN8XVSHKv3Q0BM=
