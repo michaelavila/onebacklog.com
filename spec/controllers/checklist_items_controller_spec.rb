@@ -21,4 +21,12 @@ describe ChecklistItemsController do
       get :toggle, :checklist_item_id => @checklist_item.id
     end
   end
+
+  describe '#destroy' do
+    it 'deletes backlog item' do
+      ChecklistItem.should_receive(:delete).with "1"
+
+      get :destroy, :checklist_item_id => 1
+    end
+  end
 end

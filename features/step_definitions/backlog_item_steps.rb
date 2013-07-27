@@ -29,6 +29,10 @@ When /^I complete a checklist item$/ do
   check "First Checklist Item for Testing"
 end
 
+When /^I remove a checklist item$/ do
+  find("#checklist_item_1_delete").click
+end
+
 Then /^I should see the name of the item$/ do
   expect(page).to have_content(@backlog_item.name)
 end
@@ -85,4 +89,8 @@ end
 
 Then /^I should see who is working on the item$/ do
   expect(page).to have_content(@current_worker.email)
+end
+
+Then /^the item should be removed$/ do
+  expect(page).to_not have_field("First Checklist Item for Testing")
 end

@@ -21,3 +21,10 @@ Feature: Backlog Item
     And I view the item
     When I complete a checklist item
     Then the item should be completed
+
+  @javascript
+  Scenario: Remove checklist item
+    Given a backlog item exists
+    And I view the item
+    When I remove a checklist item
+    Then the item should be removed
