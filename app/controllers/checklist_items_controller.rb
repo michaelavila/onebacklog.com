@@ -4,4 +4,9 @@ class ChecklistItemsController < ApplicationController
     checklist_item.update_attributes :completed => (not checklist_item.completed)
     render :nothing => true
   end
+
+  def destroy
+    ChecklistItem.delete params[:checklist_item_id]
+    render :nothing => true
+  end
 end
