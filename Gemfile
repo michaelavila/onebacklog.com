@@ -53,6 +53,13 @@ group :test, :development do
 
   # Use bower to manage client-side dependencies
   gem 'bower-rails', '~> 0.3.3'
+
+  # Use launch for debugging with capybaray using
+  # save_and_open_page
+  gem 'launchy'
+
+  # Use poltergeist for headless browser based testing
+  gem 'poltergeist'
 end
 
 group :production do
