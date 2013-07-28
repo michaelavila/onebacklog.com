@@ -5,15 +5,15 @@ describe 'backlog_items/show.html.erb' do
     assign :backlog_item, BacklogItem.create(:complete => true, :status => '', :creator => User.create, :updater => User.create)
     
     render
-    rendered.should have_css('li#status.success')
-    rendered.should have_css('#position.position-success')
+    rendered.should have_css('li#status.done')
+    rendered.should have_css('#position.done')
   end
 
   it 'uses warning colors when item is not complete' do
     assign :backlog_item, BacklogItem.create(:complete => false, :status => '', :creator => User.create, :updater => User.create)
     
     render
-    rendered.should have_css('li#status.warning')
-    rendered.should have_css('#position.position-warning')
+    rendered.should have_css('li#status.wip')
+    rendered.should have_css('#position.wip')
   end
 end

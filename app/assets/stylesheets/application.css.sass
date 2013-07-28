@@ -13,7 +13,11 @@
  *= require_tree .
  */
 
-$orange: #FFAA17
+$gray: #494949
+$blue: #428bca
+$red: #d9534f
+$yellow: #f0ad4e
+$green: #4c984c
 
 body
   background-image: url('/squairy_light.png')
@@ -48,13 +52,21 @@ span#position
   left: -55px
   top: 5px
 
-span.position-warning
-  color: #fcf8e3
-  background: #c09853
+.wip
+  color: #FFF
+  background: $yellow
 
-span.position-success
-  color: #dff0d8
-  background: #468847
+.done
+  color: #FFF
+  background: $green
+
+.not_worked_on
+  color: #FFF
+  background: $gray
+
+.removed
+  color: #FFF
+  background: $red
 
 
 table.table-noborder
