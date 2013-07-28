@@ -36,7 +36,7 @@
                 <tr id='remove_checklist_item_<%= checklist_item.id %>'<% if checklist_item.completed %> class='muted'<% end %>><td>
                     <label class='checkbox'>
                       <%= check_box_tag "checklist_item[id='#{checklist_item.id}']", checklist_item.id, checklist_item.completed, :onchange => "$.get('#{toggle_checklist_item_path(checklist_item)}')" %>
-                      <%= checklist_item.description %> 
+                      <%= best_in_place checklist_item, :description, :type => :input, :path => update_checklist_item_path(checklist_item) %> 
                       <span class='pull-right'>
                         <i id='checklist_item_<%= checklist_item.id %>_delete' class='icon-remove' onclick="$.get('/checklist_items/<%= checklist_item.id %>/delete'); $('#remove_checklist_item_<%= checklist_item.id %>').remove();"></i>
                       </span>

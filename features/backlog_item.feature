@@ -23,6 +23,13 @@ Feature: Backlog Item
     Then the item should be completed
 
   @javascript
+  Scenario: Edit checklist item
+    Given a backlog item exists
+    And I view the item
+    When I edit a checklist item
+    Then the checklist item should be different
+
+  @javascript
   Scenario: Remove checklist item
     Given a backlog item exists
     And I view the item
