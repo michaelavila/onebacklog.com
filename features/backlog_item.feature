@@ -28,3 +28,10 @@ Feature: Backlog Item
     And I view the item
     When I remove a checklist item
     Then the item should be removed
+
+  @javascript
+  Scenario: Edit description
+    Given a backlog item exists
+    And I view the item
+    When I edit the item description
+    Then the item description should be different

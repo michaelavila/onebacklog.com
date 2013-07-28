@@ -78,3 +78,6 @@ gem 'devise', '3.0.0'
 
 # Use for foreign key addition migrations
 gem 'foreigner'
+
+# Use for editing in place
+gem 'best_in_place', github: 'aaronchi/best_in_place'

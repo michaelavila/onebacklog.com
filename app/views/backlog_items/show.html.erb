@@ -10,7 +10,7 @@
         <br>
         <div class='row'>
             <div class='span8 description'>
-              <p><%= @backlog_item.description %></p>
+                <p><%= best_in_place @backlog_item, :description, :type => :textarea %></p>
             </div>
         </div>
     </div>

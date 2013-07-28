@@ -33,6 +33,11 @@ When /^I remove a checklist item$/ do
   find("#checklist_item_1_delete").click
 end
 
+When /^I edit the item description$/ do
+  find("#best_in_place_backlog_item_1_description").click
+  bip_area @backlog_item, :description, "edited description"
+end
+
 Then /^I should see the name of the item$/ do
   expect(page).to have_content(@backlog_item.name)
 end
@@ -93,4 +98,8 @@ end
 
 Then /^the item should be removed$/ do
   expect(page).to_not have_field("First Checklist Item for Testing")
+end
+
+Then /^the item description should be different$/ do
+  expect(page).to have_content "edited description"
 end

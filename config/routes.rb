@@ -4,6 +4,7 @@ OnebacklogCom::Application.routes.draw do
   devise_for :users, :path => 'accounts'
 
   get '/backlog/:backlog_item_id', to: 'backlog_items#show', as: 'backlog_item'
+  put '/backlog/:backlog_item_id', to: 'backlog_items#update'
   get '/checklist_items/:checklist_item_id/toggle', to: 'checklist_items#toggle', as: 'toggle_checklist_item'
   get '/checklist_items/:checklist_item_id/delete', to: 'checklist_items#destroy', as: 'destroy_checklist_item'
 
