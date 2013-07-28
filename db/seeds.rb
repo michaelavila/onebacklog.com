@@ -50,7 +50,7 @@ edit_item = BacklogItem.create(
   :updater => user,
 )
 
-completed = ['toggle checklist item']
+completed = ['toggle checklist item', 'edit name', 'edit description', 'remove checklist item', 'edit checklist item']
 ['edit name', 'edit description', 'add projects', 'remove projects', 'add to discussion', 'add checklist item', 'toggle checklist item', 'remove checklist item', 'edit checklist item', 'edits change updater'].each do |checklist_item|
   edit_item.checklist_items.create :description => checklist_item, :completed => completed.include?(checklist_item)
 end
