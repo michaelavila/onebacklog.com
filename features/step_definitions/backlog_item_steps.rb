@@ -110,15 +110,15 @@ end
 
 Then /^the item description should be different$/ do
   step 'I view the item'
-  expect(page).to have_content "edited description"
+  expect(page).to have_content("edited description")
 end
 
 Then /^the item name should be different$/ do
   step 'I view the item'
-  expect(page).to have_content "edited name"
+  expect(page).to have_content("edited name")
 end
 
 Then /^the checklist item should be different$/ do
   step 'I view the item'
-  expect(page).to have_content "edited checklist item description"
+  expect(page).to have_content("edited checklist item description")
 end
