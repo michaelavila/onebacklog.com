@@ -9,4 +9,10 @@ class ChecklistItemsController < ApplicationController
     ChecklistItem.delete params[:checklist_item_id]
     render :nothing => true
   end
+
+  def update
+    checklist_item = ChecklistItem.find params[:checklist_item_id]
+    checklist_item.update_attributes params.require(:checklist_item).permit(:description)
+    render :nothing => true
+  end
 end

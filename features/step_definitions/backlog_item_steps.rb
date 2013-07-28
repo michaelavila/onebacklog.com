@@ -16,7 +16,7 @@ Given /^a backlog item exists$/ do
   )
   @backlog_item.comments.create :comment => "First Comment for Testing", :user => creator
   @backlog_item.comments.create :comment => "Second Comment for Testing", :user => creator
-  @backlog_item.checklist_items.create :description => "First Checklist Item for Testing"
+  @checklist_item = @backlog_item.checklist_items.create :description => "First Checklist Item for Testing"
   @backlog_item.checklist_items.create :description => "Second Checklist Item for Testing"
   @current_worker.assignments.create :backlog_item => @backlog_item
 end
@@ -31,6 +31,18 @@ end
 
 When /^I remove a checklist item$/ do
   find("#checklist_item_1_delete").click
+end
+
+When /^I edit the item description$/ do
+  bip_area @backlog_item, :description, "edited description"
+end
+
+When /^I edit the item name$/ do
+  bip_text @backlog_item, :name, "edited name"
+end
+
+When /^I edit a checklist item$/ do
+  bip_text @checklist_item, :description, "edited checklist item description"
 end
 
 Then /^I should see the name of the item$/ do
@@ -92,5 +104,21 @@ Then /^I should see who is working on the item$/ do
 end
 
 Then /^the item should be removed$/ do
+  step 'I view the item'
   expect(page).to_not have_field("First Checklist Item for Testing")
+end
+
+Then /^the item description should be different$/ do
+  step 'I view the item'
+  expect(page).to have_content("edited description")
+end
+
+Then /^the item name should be different$/ do
+  step 'I view the item'
+  expect(page).to have_content("edited name")
+end
+
+Then /^the checklist item should be different$/ do
+  step 'I view the item'
+  expect(page).to have_content("edited checklist item description")
 end
