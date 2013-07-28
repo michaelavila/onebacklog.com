@@ -109,7 +109,6 @@ Then /^the item should be removed$/ do
 end
 
 Then /^the item description should be different$/ do
-  step 'I view the item'
   expect(page).to have_content "edited description"
 end
 
