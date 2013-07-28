@@ -34,8 +34,11 @@ When /^I remove a checklist item$/ do
 end
 
 When /^I edit the item description$/ do
-  find("#best_in_place_backlog_item_1_description").click
   bip_area @backlog_item, :description, "edited description"
+end
+
+When /^I edit the item name$/ do
+  bip_text @backlog_item, :name, "edited name"
 end
 
 Then /^I should see the name of the item$/ do
@@ -102,4 +105,8 @@ end
 
 Then /^the item description should be different$/ do
   expect(page).to have_content "edited description"
+end
+
+Then /^the item name should be different$/ do
+  expect(page).to have_content "edited name"
 end

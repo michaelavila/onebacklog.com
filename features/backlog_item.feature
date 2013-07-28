@@ -35,3 +35,10 @@ Feature: Backlog Item
     And I view the item
     When I edit the item description
     Then the item description should be different
+
+  @javascript
+  Scenario: Edit title
+    Given a backlog item exists
+    And I view the item
+    When I edit the item name
+    Then the item name should be different

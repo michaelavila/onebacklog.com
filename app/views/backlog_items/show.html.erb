@@ -4,7 +4,7 @@
         <div class='row'>
             <div class='span8'>
                 <span id='position' class='<% if @backlog_item.complete %>position-success<% else %>position-warning<% end %>'><%= @backlog_item.position %></span>
-                <h1><%= @backlog_item.name %> </h1>
+                <h1><%= best_in_place @backlog_item, :name, :type => :input %></h1>
             </div>
         </div>
         <br>
