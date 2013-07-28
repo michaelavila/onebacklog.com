@@ -114,31 +114,25 @@ Then /^I should see who is working on the item$/ do
 end
 
 Then /^the item should be removed$/ do
-  step 'I view the item'
   expect(page).to_not have_field("First Checklist Item for Testing")
 end
 
 Then /^the item description should be different$/ do
-  step 'I view the item'
   expect(page).to have_content("edited description")
 end
 
 Then /^the item name should be different$/ do
-  step 'I view the item'
   expect(page).to have_content("edited name")
 end
 
 Then /^the checklist item should be different$/ do
-  step 'I view the item'
   expect(page).to have_content("edited checklist item description")
 end
 
 Then /^the new item should exist$/ do
-  step 'I view the item'
   expect(page).to have_content("new checklist item")
 end
 
 Then /^the new comment should exist$/ do
-  step 'I view the item'
   expect(page).to have_content("new comment message")
 end
