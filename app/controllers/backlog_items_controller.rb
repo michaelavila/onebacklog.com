@@ -12,4 +12,11 @@ class BacklogItemsController < ApplicationController
     )
     respond_with @backlog_item
   end
+
+  def comment
+    comment = BacklogItem.find(params[:backlog_item_id]).comments.new params.require(:comment).permit(:comment)
+    comment.user = User.all.first
+    comment.save
+    redirect_to backlog_item_path(params[:backlog_item_id])
+  end
 end

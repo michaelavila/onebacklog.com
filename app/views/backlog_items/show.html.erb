@@ -66,6 +66,13 @@
                 </td>
               </tr>
               <% end %>
+              <tr>
+                  <td>
+                      <%= form_for @backlog_item.comments.new, :url => create_comment_path(@backlog_item) do |f| %>
+                          <%= f.text_field :comment, :id => "add_comment_message" %>
+                      <% end %>
+                  </td>
+              </tr>
             </table>
           </div>
       </div>

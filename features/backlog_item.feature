@@ -56,3 +56,10 @@ Feature: Backlog Item
     And I view the item
     When I edit the item name
     Then the item name should be different
+
+  @javascript
+  Scenario: Add comment
+    Given a backlog item exists
+    And I view the item
+    When I add a comment
+    Then the new comment should exist

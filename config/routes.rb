@@ -9,6 +9,7 @@ OnebacklogCom::Application.routes.draw do
   get '/checklist_items/:checklist_item_id/delete', to: 'checklist_items#destroy', as: 'destroy_checklist_item'
   put '/checklist_items/:checklist_item_id/update', to: 'checklist_items#update', as: 'update_checklist_item'
   post '/onebacklog/:backlog_item_id/checklist/create', to: 'checklist_items#create', as: 'create_checklist_item'
+  post '/onebacklog/:backlog_item_id/discussion/create', to: 'backlog_items#comment', as: 'create_comment'
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'

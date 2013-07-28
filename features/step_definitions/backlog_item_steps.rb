@@ -50,6 +50,11 @@ When /^I add a checklist item$/ do
   page.evaluate_script "$('#new_checklist_item').submit()"
 end
 
+When /^I add a comment$/ do
+  fill_in 'add_comment_message', with: "new comment message"
+  page.evaluate_script "$('#new_comment').submit()"
+end
+
 Then /^I should see the name of the item$/ do
   expect(page).to have_content(@backlog_item.name)
 end
@@ -131,4 +136,9 @@ end
 Then /^the new item should exist$/ do
   step 'I view the item'
   expect(page).to have_content("new checklist item")
+end
+
+Then /^the new comment should exist$/ do
+  step 'I view the item'
+  expect(page).to have_content("new comment message")
 end
