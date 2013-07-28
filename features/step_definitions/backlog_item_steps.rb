@@ -45,6 +45,11 @@ When /^I edit a checklist item$/ do
   bip_text @checklist_item, :description, "edited checklist item description"
 end
 
+When /^I add a checklist item$/ do
+  fill_in 'add_checklist_item_description', with: "new checklist item"
+  page.evaluate_script "$('#new_checklist_item').submit()"
+end
+
 Then /^I should see the name of the item$/ do
   expect(page).to have_content(@backlog_item.name)
 end
@@ -121,4 +126,9 @@ end
 Then /^the checklist item should be different$/ do
   step 'I view the item'
   expect(page).to have_content("edited checklist item description")
+end
+
+Then /^the new item should exist$/ do
+  step 'I view the item'
+  expect(page).to have_content("new checklist item")
 end

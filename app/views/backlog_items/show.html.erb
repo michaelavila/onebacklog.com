@@ -43,6 +43,13 @@
                     </label>
                   </td></tr>
               <% end %>
+              <tr>
+                  <td>
+                      <%= form_for @backlog_item.checklist_items.new, :url => create_checklist_item_path(@backlog_item) do |f| %>
+                          <%= f.text_field :description, :id => "add_checklist_item_description" %>
+                      <% end %>
+                  </td>
+              </tr>
           </table>
       </div>
       <div class='span7'>

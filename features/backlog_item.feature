@@ -23,6 +23,13 @@ Feature: Backlog Item
     Then the item should be completed
 
   @javascript
+  Scenario: Add checklist item
+    Given a backlog item exists
+    And I view the item
+    When I add a checklist item
+    Then the new item should exist
+
+  @javascript
   Scenario: Edit checklist item
     Given a backlog item exists
     And I view the item
