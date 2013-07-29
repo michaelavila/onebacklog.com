@@ -46,7 +46,7 @@
               <tr>
                   <td>
                       <%= form_for @backlog_item.checklist_items.new, :url => create_checklist_item_path(@backlog_item) do |f| %>
-                          <%= f.text_field :description, :id => "add_checklist_item_description" %>
+                          <%= f.text_field :description, :id => "add_checklist_item_description", :placeholder => "Add checklist item", :class => "input-block-level" %>
                       <% end %>
                   </td>
               </tr>
@@ -69,7 +69,7 @@
               <tr>
                   <td>
                       <%= form_for @backlog_item.comments.new, :url => create_comment_path(@backlog_item) do |f| %>
-                          <%= f.text_field :comment, :id => "add_comment_message" %>
+                          <%= f.text_area :comment, :id => "add_comment_message", :placeholder => "Leave a comment", :class => "input-block-level", :rows => 4 %>
                       <% end %>
                   </td>
               </tr>
