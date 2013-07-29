@@ -1,5 +1,16 @@
 include ActionView::Helpers::DateHelper
 
+Given /^I am logged in$/  do
+  email = 'testing@man.net'
+  password = 'secretpass'
+  user = User.create :email => 'me@example.com', :password => 'password longer', :password_confirmation => 'password longer'
+
+  visit new_user_session_path
+  fill_in "user_email", :with => user.email
+  fill_in "user_password", :with => user.password
+  click_button "Sign in"
+end
+
 Given /^a backlog item exists$/ do
   creator = User.create :email => 'creator@example.com', :password => 'password longer'
   updater = User.create :email => 'updater@example.com', :password => 'password longer'

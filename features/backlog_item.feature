@@ -1,5 +1,8 @@
 Feature: Backlog Item
 
+  Background:
+    Given I am logged in
+
   Scenario: View item
     Given a backlog item exists
     When I view the item
