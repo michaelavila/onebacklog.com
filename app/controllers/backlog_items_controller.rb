@@ -18,7 +18,7 @@ class BacklogItemsController < ApplicationController
     backlog_item = BacklogItem.find(params[:backlog_item_id])
     backlog_item.update_attributes :updater_id => current_user.id
     comment = backlog_item.comments.new params.require(:comment).permit(:comment)
-    comment.user = User.all.first
+    comment.user = current_user
     comment.save
     redirect_to backlog_item_path(params[:backlog_item_id])
   end

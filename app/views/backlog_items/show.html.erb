@@ -70,6 +70,7 @@
                   <td>
                       <%= form_for @backlog_item.comments.new, :url => create_comment_path(@backlog_item) do |f| %>
                           <%= f.text_area :comment, :id => "add_comment_message", :placeholder => "Leave a comment", :class => "input-block-level", :rows => 4 %>
+                          <%= f.submit :class => 'btn', :value => 'Leave Comment' %>
                       <% end %>
                   </td>
               </tr>

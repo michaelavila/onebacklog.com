@@ -60,6 +60,9 @@ group :test, :development do
 
   # Use poltergeist for headless browser based testing
   gem 'poltergeist'
+
+  # Use for testing email behavior
+  gem 'mailcatcher'
 end
 
 group :production do

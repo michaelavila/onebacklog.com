@@ -3,8 +3,9 @@ require 'spec_helper'
 describe BacklogItemsController do
   describe '#show' do
     it 'assigns the correct backlog_item' do
-      @backlog_item = double(:id => 1)
-      BacklogItem.should_receive(:find).with("#{@backlog_item.id}").and_return @backlog_item
+      updater = User.create :email => 'updater@example.com', :password => 'password longer'
+      sign_in updater
+      @backlog_item = BacklogItem.create
 
       get :show, :backlog_item_id => @backlog_item.id
 
