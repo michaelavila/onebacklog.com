@@ -9,6 +9,11 @@
 user = User.create :email => 'me@onebacklog.com', :password => 'password longer'
 worker = User.create :email => 'worker@onebacklog.com', :password => '123456789'
 
+BacklogItem.delete_all
+Comment.delete_all
+Assignment.delete_all
+ChecklistItem.delete_all
+
 # View Backlog Item
 
 view_item = BacklogItem.create(
@@ -47,4 +52,8 @@ edit_item = BacklogItem.create(
 completed = ['toggle checklist item', 'edit name', 'edit description', 'remove checklist item', 'edit checklist item', 'add checklist item']
 ['edit name', 'edit description', 'add projects', 'remove projects', 'add to discussion', 'add checklist item', 'toggle checklist item', 'remove checklist item', 'edit checklist item', 'edits change updater'].each do |checklist_item|
   edit_item.checklist_items.create :description => checklist_item, :completed => completed.include?(checklist_item)
+end
+
+['Add item', 'Remove item', 'View backlog', 'Prioritize backlog', 'Complete item', 'View goal line', 'Change goal line', 'View previous week progress markers', 'Mention team member', 'Receive mention notifications', 'Receive status notifications', 'View /me page', 'Next item from /me page'].each do |item|
+  BacklogItem.create :name => item
 end
