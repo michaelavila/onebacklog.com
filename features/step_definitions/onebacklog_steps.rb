@@ -156,6 +156,10 @@ Then /^the new comment should exist$/ do
   expect(page).to have_content("new comment message")
 end
 
-Then /^I should see the item name$/ do
+Then /^I should see the empty backlog message$/ do
   expect(page).to have_content("No items in the backlog")
+end
+
+Then /^I should see the item name$/ do
+  expect(page).to have_content(@backlog_item.name)
 end

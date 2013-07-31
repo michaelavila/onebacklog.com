@@ -1,1 +1,11 @@
-No items in the backlog
+<table class='table table-striped'>
+  <% if @backlog_items.empty? %>
+    No items in the backlog
+  <% else %>
+    <% @backlog_items.each do |backlog_item| %>
+      <tr>
+        <td><%= backlog_item.name %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
