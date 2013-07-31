@@ -33,7 +33,8 @@
           <h4>Checklist</h4>
           <table class='table table-striped table-noborder'>
               <% @backlog_item.checklist_items.each do |checklist_item| %>
-                <tr id='remove_checklist_item_<%= checklist_item.id %>'<% if checklist_item.completed %> class='muted'<% end %>><td>
+              <tr id='remove_checklist_item_<%= checklist_item.id %>'>
+                  <td>
                     <label class='checkbox'>
                       <%= check_box_tag "checklist_item[id='#{checklist_item.id}']", checklist_item.id, checklist_item.completed, :onchange => "$.get('#{toggle_checklist_item_path(checklist_item)}')" %>
                       <%= best_in_place checklist_item, :description, :type => :input, :path => update_checklist_item_path(checklist_item) %> 
