@@ -2,6 +2,9 @@ class BacklogItemsController < ApplicationController
   respond_to :html, :json
   before_filter :authenticate_user!
 
+  def index
+  end
+
   def show
     @backlog_item = BacklogItem.find params[:backlog_item_id]
   end

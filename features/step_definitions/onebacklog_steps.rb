@@ -32,6 +32,10 @@ Given /^a backlog item exists$/ do
   @current_worker.assignments.create :backlog_item => @backlog_item
 end
 
+Given /^no backlog items$/ do
+  BacklogItem.delete_all
+end
+
 When /^I view the item$/ do
   visit backlog_item_path(@backlog_item.id)
 end
@@ -64,6 +68,10 @@ end
 When /^I add a comment$/ do
   fill_in 'add_comment_message', with: "new comment message"
   page.evaluate_script "$('#new_comment').submit()"
+end
+
+When /^I view the backlog$/ do
+  visit backlog_path
 end
 
 Then /^I should see the name of the item$/ do
@@ -146,4 +154,8 @@ end
 
 Then /^the new comment should exist$/ do
   expect(page).to have_content("new comment message")
+end
+
+Then /^I should see the item name$/ do
+  expect(page).to have_content("No items in the backlog")
 end

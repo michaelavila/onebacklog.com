@@ -3,6 +3,7 @@ OnebacklogCom::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
   devise_for :users, :path => 'accounts'
 
+  get '/onebacklog/', to: 'backlog_items#index', as: 'backlog'
   get '/onebacklog/:backlog_item_id', to: 'backlog_items#show', as: 'backlog_item'
   put '/onebacklog/:backlog_item_id', to: 'backlog_items#update'
   get '/checklist_items/:checklist_item_id/toggle', to: 'checklist_items#toggle', as: 'toggle_checklist_item'
