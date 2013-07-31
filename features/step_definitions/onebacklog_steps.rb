@@ -32,6 +32,14 @@ Given /^a backlog item exists$/ do
   @current_worker.assignments.create :backlog_item => @backlog_item
 end
 
+Given /^another backlog item exists$/ do
+  @other_backlog_item = BacklogItem.create(
+    :name => 'Other Name for Testing',
+    :position => 1,
+  )
+  @backlog_item.update_attribute :position, 2
+end
+
 Given /^no backlog items$/ do
   BacklogItem.delete_all
 end
@@ -162,4 +170,8 @@ end
 
 Then /^I should see the item name$/ do
   expect(page).to have_content(@backlog_item.name)
+end
+
+Then /^the backlog is sorted$/ do
+  expect(page.text).to match(/#{@other_backlog_item.name}.*#{@backlog_item.name}/)
 end

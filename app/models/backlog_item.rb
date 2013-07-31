@@ -5,4 +5,5 @@ class BacklogItem < ActiveRecord::Base
   belongs_to :updater, :class_name => 'User'
   acts_as_taggable_on :projects
   acts_as_commentable
+  default_scope order('position')
 end
