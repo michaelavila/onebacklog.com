@@ -54,6 +54,15 @@ completed = ['toggle checklist item', 'edit name', 'edit description', 'remove c
   edit_item.checklist_items.create :description => checklist_item, :completed => completed.include?(checklist_item)
 end
 
+position = 3
 ['Add item', 'Remove item', 'View backlog', 'Prioritize backlog', 'Complete item', 'View goal line', 'Change goal line', 'View previous week progress markers', 'Mention team member', 'Receive mention notifications', 'Receive status notifications', 'View /me page', 'Next item from /me page'].each do |item|
-  BacklogItem.create :name => item
+  BacklogItem.create(
+    :name => item,
+    :description => item,
+    :position => position,
+    :status => 'Not in iteration. Not started',
+    :creator => user,
+    :updater => user,
+  )
+  position += 1
 end
