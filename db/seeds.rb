@@ -63,6 +63,7 @@ position = 3
     :status => 'Not in iteration. Not started',
     :creator => user,
     :updater => user,
+    :project_list => "onebacklog",
   )
   position += 1
 end
