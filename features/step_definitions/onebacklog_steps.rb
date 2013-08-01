@@ -175,3 +175,7 @@ end
 Then /^the backlog is sorted$/ do
   expect(page.text).to match(/#{@other_backlog_item.name}.*#{@backlog_item.name}/)
 end
+
+Then /^I should see a link to the item$/ do
+  expect(page).to have_link(@backlog_item.name, backlog_item_path(@backlog_item))
+end

@@ -6,7 +6,7 @@
   <% else %>
     <% @backlog_items.each do |backlog_item| %>
       <tr>
-        <td><%= backlog_item.name %></td>
+        <td><%= link_to backlog_item.name, backlog_item_path(backlog_item) %></td>
       </tr>
     <% end %>
   <% end %>
