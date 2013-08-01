@@ -19,8 +19,12 @@
           <li class='nav-header'>Status</li>
           <li id='status' class='<% if @backlog_item.complete %>done<% else %>wip<% end %>'><strong><%= @backlog_item.status.capitalize %>.</strong></li>
           <li class='nav-header'>Current workers</li>
-          <% @backlog_item.assignments.each do |assignment| %>
-              <li><small><%= assignment.user.email %></small></li>
+          <% if @backlog_item.assignments.count > 0 %>
+            <% @backlog_item.assignments.each do |assignment| %>
+                <li><small><%= assignment.user.email %></small></li>
+            <% end %>
+          <% else %>
+            <li><small>No active people</small></li>
           <% end %>
           <li class='nav-header'>Projects</li>
           <li><small><%= @backlog_item.project_list %></small></li>
