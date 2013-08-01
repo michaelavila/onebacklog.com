@@ -6,8 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-user = User.create :email => 'me@onebacklog.com', :password => 'password longer'
-worker = User.create :email => 'worker@onebacklog.com', :password => '123456789'
+user = User.find_by_email 'me@onebacklog.com'
+worker = User.find_by_email 'worker@onebacklog.com'
 
 BacklogItem.delete_all
 Comment.delete_all
