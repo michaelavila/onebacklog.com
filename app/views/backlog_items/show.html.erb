@@ -27,7 +27,11 @@
             <li><small>No active people</small></li>
           <% end %>
           <li class='nav-header'>Projects</li>
+          <% if @backlog_item.project_list.count > 0 %>
           <li><small><%= @backlog_item.project_list %></small></li>
+          <% else %>
+          <li><small>No project labels</small></li>
+          <% end %>
       </ul>
     </div>
   </div>
