@@ -53,7 +53,7 @@ When /^I complete a checklist item$/ do
 end
 
 When /^I remove a checklist item$/ do
-  find("#checklist_item_1_delete").click
+  page.find("#checklist_item_1_delete").click
 end
 
 When /^I edit the item description$/ do
