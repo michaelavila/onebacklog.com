@@ -1,20 +1,20 @@
 <div class='backlog_items'>
   <div class='row'>
-    <div class='span8'>
+    <div class='col-lg-8'>
         <div class='row'>
-            <div class='span8'>
+            <div class='col-lg-8'>
                 <span id='position' class='<% if @backlog_item.complete %>done<% else %>wip<% end %>'><%= @backlog_item.position %></span>
                 <h1><%= best_in_place @backlog_item, :name, :type => :input %></h1>
             </div>
         </div>
         <br>
         <div class='row'>
-            <div class='span8 description'>
+            <div class='col-lg-8 description'>
                 <p><%= best_in_place @backlog_item, :description, :type => :textarea %></p>
             </div>
         </div>
     </div>
-    <div class='span4'>
+    <div class='col-lg-4'>
       <ul class='nav nav-list well'>
           <li class='nav-header'>Status</li>
           <li id='status' class='<% if @backlog_item.complete %>done<% else %>wip<% end %>'><strong><%= @backlog_item.status.capitalize %>.</strong></li>
@@ -37,7 +37,7 @@
   </div>
 
   <div class='row'>
-      <div class='span5'>
+      <div class='col-lg-5'>
           <h4>Checklist</h4>
           <table class='table table-striped table-noborder'>
               <% @backlog_item.checklist_items.each do |checklist_item| %>
@@ -61,7 +61,7 @@
               </tr>
           </table>
       </div>
-      <div class='span7'>
+      <div class='col-lg-7'>
         <div>
           <h4>Discussion</h4>
             <table class='table table-striped table-noborder discussion'>
@@ -88,10 +88,10 @@
       </div>
   </div>
 
-  <div class='row'> <div class='span12'> <hr> </div> </div>
+  <div class='row'> <div class='col-lg-12'> <hr> </div> </div>
 
   <div class='row'>
-    <div class='span12 dates muted'>
+    <div class='col-lg-12 dates muted'>
     <small>Created by <strong><%= @backlog_item.creator.email %></strong> <%= time_ago_in_words @backlog_item.created_at %> ago. Last updated by <strong><%= @backlog_item.updater.email %></strong> <%= time_ago_in_words @backlog_item.updated_at %> ago.</small>
     </div>
   </div>
