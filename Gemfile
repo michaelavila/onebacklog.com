@@ -84,3 +84,6 @@ gem 'foreigner'
 
 # Use for editing in place
 gem 'best_in_place', github: 'aaronchi/best_in_place'
+
+# Use for icons
+gem 'font-awesome-rails', '3.1.1.2'
