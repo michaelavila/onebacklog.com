@@ -5,6 +5,7 @@ env:
 - DB=sqlite
 script:
 - RAILS_ENV=test bundle exec rake db:migrate --trace
+- npm install -g bower
 - rake bower:install
 - rake db:test:prepare
 - rake db:seed
