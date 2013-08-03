@@ -6,6 +6,7 @@ Feature: Backlog
     And I am logged in
     When I view the backlog
     Then I should see the item name
+    And I should see the position of the item in the backlog
     And I should see a link to the item
     And the backlog is sorted
 
