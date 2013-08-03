@@ -8,7 +8,6 @@ before_script:
 - rake bower:install
 - RAILS_ENV=test bundle exec rake db:migrate --trace
 - rake db:test:prepare
-- rake db:seed
 script:
 - rake
 deploy:
