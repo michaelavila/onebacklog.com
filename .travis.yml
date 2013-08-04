@@ -4,8 +4,8 @@ rvm:
 env:
 - DB=sqlite
 before_script:
-- npm install -g bower
-- rake bower:install
+- npm install
+- ./node_modules/bower/bin/bower install
 - RAILS_ENV=test bundle exec rake db:migrate --trace
 - rake db:test:prepare
 script:
