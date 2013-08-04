@@ -1,14 +1,11 @@
 .backlog_items
+  %div{:id => "position", :class => (@backlog_item.complete ? "done" : "wip")}
+    = @backlog_item.position
   .row
     .col-lg-8
-      .row
-        .col-lg-8
-          %span{:id => "position", :class => (@backlog_item.complete ? "done" : "wip")}= @backlog_item.position
-          %h1= best_in_place @backlog_item, :name, :type => :input
-      %br
-      .row
-        .col-lg-8.description
-          %p= best_in_place @backlog_item, :description, :type => :textarea
+      %h1= best_in_place @backlog_item, :name, :type => :input
+      .description
+        %p= best_in_place @backlog_item, :description, :type => :textarea
     .col-lg-4
       .well
         %h6= "Status"
