@@ -11,7 +11,7 @@ describe 'backlog_items/show.html.haml' do
       @backlog_item.update_attribute :complete, true
       
       render
-      rendered.should have_css('li#status.done')
+      rendered.should have_css('#status.done')
       rendered.should have_css('#position.done')
     end
 
@@ -19,7 +19,7 @@ describe 'backlog_items/show.html.haml' do
       @backlog_item.update_attribute :complete, false
       
       render
-      rendered.should have_css('li#status.wip')
+      rendered.should have_css('#status.wip')
       rendered.should have_css('#position.wip')
     end
   end
