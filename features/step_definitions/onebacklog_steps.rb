@@ -24,6 +24,7 @@ Given /^a backlog item exists$/ do
     :project_list => 'First Project for Testing, Second Project for Testing',
     :creator => creator,
     :updater => updater,
+    :id => 1,
   )
   @backlog_item.comments.create :comment => "First Comment for Testing", :user => creator
   @backlog_item.comments.create :comment => "Second Comment for Testing", :user => creator
