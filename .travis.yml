@@ -4,6 +4,7 @@ rvm:
 env:
 - DB=postgres
 before_script:
+- travis_retry npm install
 - ./script/bower_install
 - RAILS_ENV=test bundle exec rake db:migrate --trace
 - rake db:test:prepare
