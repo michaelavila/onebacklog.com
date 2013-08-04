@@ -46,7 +46,7 @@ describe BacklogItemsController do
 
   describe '#comment' do
     it 'changes the updater and updated time' do
-      @backlog_item = BacklogItem.create :name => 'something'
+      @backlog_item = BacklogItem.create :name => 'something', :id => 1
         
       post :comment, {
         :backlog_item_id => 1,
