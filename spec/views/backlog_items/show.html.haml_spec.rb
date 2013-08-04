@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'backlog_items/show.html.erb' do
+describe 'backlog_items/show.html.haml' do
   before :each do
     @backlog_item = BacklogItem.create(:complete => true, :status => 'TESTING', :creator => User.create, :updater => User.create)
     assign :backlog_item, @backlog_item

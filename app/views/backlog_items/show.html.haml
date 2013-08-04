@@ -1,0 +1,75 @@
+.backlog_items
+  .row
+    .col-lg-8
+      .row
+        .col-lg-8
+          %span{:id => "position", :class => (@backlog_item.complete ? "done" : "wip")}= @backlog_item.position
+          %h1= best_in_place @backlog_item, :name, :type => :input
+      %br
+      .row
+        .col-lg-8.description
+          %p= best_in_place @backlog_item, :description, :type => :textarea
+    .col-lg-4
+      %ul.nav.nav-list.well
+        %li.nav-header= "Status"
+        %li{:id => "status", :class => (@backlog_item.complete ? "done" : "wip")}
+          %strong= @backlog_item.status.capitalize
+        %li.nav-header= "Current workers"
+        %li
+          %small
+            - if @backlog_item.assignments.count > 0
+              - @backlog_item.assignments.each do |assignment|
+                = assignment.user.email
+            - else
+              = "No active people"
+        %li.nav-header= "Projects"
+        %li
+          %small
+            - if @backlog_item.project_list.count > 0
+              = @backlog_item.project_list
+            - else
+              = "No project labels"
+    .row
+      .col-lg-5
+        %h4= "Checklist"
+        %table.table.table-striped.table-noborder
+          - @backlog_item.checklist_items.each do |checklist_item|
+            %tr{:id => "remove_checklist_item_#{checklist_item.id}"}
+              %td
+                %label.checkbox
+                  = check_box_tag "checklist_item[id='#{checklist_item.id}']", checklist_item.id, checklist_item.completed, :onchange => "$.get('#{toggle_checklist_item_path(checklist_item)}')"
+                  = best_in_place checklist_item, :description, :type => :input, :path => update_checklist_item_path(checklist_item)
+                  %span.pull-right
+                    %i{:id => "checklist_item_#{checklist_item.id}_delete", :class => "icon-remove", :onclick => "$.get('/checklist_items/#{checklist_item.id}/delete'); $('#remove_checklist_item_#{checklist_item.id}').remove();"}
+          %tr
+            %td
+              = form_for @backlog_item.checklist_items.new, :url => create_checklist_item_path(@backlog_item) do |f|
+                = f.text_field :description, :id => "add_checklist_item_description", :placeholder => "Add checklist item", :class => "input-block-level"
+      .col-lg-7
+        %div
+          %h4= "Discussion"
+          %table.table.table-striped.table-noborder.discussion
+            - @backlog_item.comments.each do |comment|
+              %tr
+                %td
+                  %p= comment.comment
+                  %small
+                    %em= "#{time_ago_in_words comment.created_at} ago"
+                    = " by "
+                    %strong= comment.user.email || "Anonymous"
+            %tr
+              %td
+                = form_for @backlog_item.comments.new, :url => create_comment_path(@backlog_item) do |f|
+                  = f.text_area :comment, :id => "add_comment_message", :placeholder => "Leave a comment", :class => "input-block-level", :rows => 4
+                  = f.submit :class => 'btn', :value => 'Leave Comment'
+  .row
+    .col-lg-12
+      %hr
+  .row
+    .col-lg-12.dates.muted
+      %small
+        = "Created by "
+        %strong= @backlog_item.creator.email
+        = " #{time_ago_in_words @backlog_item.created_at} ago. Last updated by "
+        %strong= @backlog_item.updater.email
+        = " #{time_ago_in_words @backlog_item.updated_at} ago."

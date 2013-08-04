@@ -87,3 +87,6 @@ gem 'best_in_place', github: 'aaronchi/best_in_place'
 
 # Use for icons
 gem 'font-awesome-rails', '3.1.1.2'
+
+# HAML!
+gem 'haml-rails', '0.4'
