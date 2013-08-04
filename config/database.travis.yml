@@ -1,4 +1,4 @@
 test:
-  adapter: postgres
+  adapter: postgresql
   username: postgres
   database: onebacklog_test
