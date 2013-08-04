@@ -51,9 +51,6 @@ group :test, :development do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
 
-  # Use bower to manage client-side dependencies
-  gem 'bower-rails', '~> 0.3.3'
-
   # Use launch for debugging with capybaray using
   # save_and_open_page
   gem 'launchy'
