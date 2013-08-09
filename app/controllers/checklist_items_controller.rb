@@ -21,9 +21,8 @@ class ChecklistItemsController < ApplicationController
   end
 
   def create
-    checklist_item = ChecklistItem.new params.require(:checklist_item).permit(:description)
-    checklist_item.backlog_item_id = params[:backlog_item_id]
-    checklist_item.save
+    params[:checklist_item] = params[:checklist_item].merge :backlog_item_id => params[:backlog_item_id]
+    checklist_item = ChecklistItem.create params.require(:checklist_item).permit :backlog_item_id, :description
     redirect_to backlog_item_path(params[:backlog_item_id])
   end
 end
