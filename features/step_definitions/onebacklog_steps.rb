@@ -87,6 +87,11 @@ Then /^I should see the name of the item$/ do
   expect(page).to have_content(@backlog_item.name)
 end
 
+Then /^I should see the name of the item in the title$/ do
+  expected_title = "#{@backlog_item.name} | OnebacklogCom"
+  page.should have_title(expected_title)
+end
+
 Then /^I should see the description of the item$/ do
   expect(page).to have_content(@backlog_item.description)
 end

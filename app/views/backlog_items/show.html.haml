@@ -1,3 +1,4 @@
+- content_for :title, "#{@backlog_item.name} | "
 .backlog_items
   %div{:id => "position", :class => (@backlog_item.complete ? "done" : "wip")}
     = @backlog_item.position
