@@ -19,6 +19,13 @@ Feature: Backlog Item
     And I should see the checklist for the item
     And I should see who is working on the item
 
+  @javascript
+  Scenario: Remove item
+    Given a backlog item exists
+    And I view the item
+    When I remove the item
+    Then the backlog item should be removed
+
   Scenario: Complete checklist item
     Given a backlog item exists
     And I view the item

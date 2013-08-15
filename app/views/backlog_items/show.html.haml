@@ -63,6 +63,8 @@
   .row
     .col-lg-12
       %hr
+      %a.remove-backlog-item.btn.btn-danger{:href => "/onebacklog/#{@backlog_item.id}/delete", :onclick => "return confirm('Are you sure?')"}= "Remove \"#{@backlog_item.name}\""
+      %hr
   .row
     .col-lg-12.dates.muted
       %small

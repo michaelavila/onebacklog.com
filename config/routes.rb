@@ -6,6 +6,7 @@ OnebacklogCom::Application.routes.draw do
   get '/onebacklog/', to: 'backlog_items#index', as: 'backlog'
   get '/onebacklog/:backlog_item_id', to: 'backlog_items#show', as: 'backlog_item'
   put '/onebacklog/:backlog_item_id', to: 'backlog_items#update'
+  get '/onebacklog/:backlog_item_id/delete', to: 'backlog_items#destroy', as: 'destroy_backlog_item'
   get '/checklist_items/:checklist_item_id/toggle', to: 'checklist_items#toggle', as: 'toggle_checklist_item'
   get '/checklist_items/:checklist_item_id/delete', to: 'checklist_items#destroy', as: 'destroy_checklist_item'
   put '/checklist_items/:checklist_item_id/update', to: 'checklist_items#update', as: 'update_checklist_item'

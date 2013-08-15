@@ -26,6 +26,17 @@ describe BacklogItemsController do
     end
   end
 
+  describe '#desroy' do
+    it 'removes the backlog item' do
+      @backlog_item = BacklogItem.create
+      BacklogItem.should_receive(:delete).with "#{@backlog_item.id}"
+
+      get :destroy, :backlog_item_id => @backlog_item.id
+
+      response.should redirect_to :action => :index
+    end
+  end
+
   describe '#update' do
     it 'changes the updater and updated time' do
       @backlog_item = mock_model(BacklogItem, :id => 1)

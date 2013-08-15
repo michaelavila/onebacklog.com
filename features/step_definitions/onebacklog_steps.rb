@@ -83,6 +83,11 @@ When /^I view the backlog$/ do
   visit backlog_path
 end
 
+When /^I remove the item$/ do
+  page.evaluate_script 'window.confirm = function() { return true; }'
+  page.find(".remove-backlog-item").click
+end
+
 Then /^I should see the name of the item$/ do
   expect(page).to have_content(@backlog_item.name)
 end
@@ -184,4 +189,9 @@ end
 
 Then /^I should see a link to the item$/ do
   expect(page).to have_link(@backlog_item.name, backlog_item_path(@backlog_item))
+end
+
+Then /^the backlog item should be removed$/ do
+  step 'I view the backlog'
+  expect(page).to_not have_content(@backlog_item.name)
 end

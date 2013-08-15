@@ -10,6 +10,11 @@ class BacklogItemsController < ApplicationController
   def show
   end
 
+  def destroy
+    BacklogItem.delete params[:backlog_item_id]
+    redirect_to backlog_path
+  end
+
   def update
     params[:backlog_item] = params[:backlog_item].merge :updater_id => current_user.id
     attributes = params.require(:backlog_item).permit :description, :name, :updater_id
