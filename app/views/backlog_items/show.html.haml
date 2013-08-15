@@ -26,40 +26,40 @@
               = @backlog_item.project_list
             - else
               = "No project labels"
-    .row
-      .col-lg-5
-        %h4= "Checklist"
-        %table.table.table-striped.table-noborder
-          - @backlog_item.checklist_items.each do |checklist_item|
-            %tr{:id => "remove_checklist_item_#{checklist_item.id}"}
-              %td
-                %label.checkbox
-                  = check_box_tag "checklist_item[id='#{checklist_item.id}']", checklist_item.id, checklist_item.completed, :onchange => "$.get('#{toggle_checklist_item_path(checklist_item)}')"
-                  = best_in_place checklist_item, :description, :type => :input, :path => update_checklist_item_path(checklist_item)
-                  %span.pull-right
-                    %i{:id => "checklist_item_#{checklist_item.id}_delete", :class => "icon-remove", :onclick => "$.get('/checklist_items/#{checklist_item.id}/delete'); $('#remove_checklist_item_#{checklist_item.id}').remove();"}
-          %tr
+  .row
+    .col-lg-5
+      %h4= "Checklist"
+      %table.table.table-striped.table-noborder
+        - @backlog_item.checklist_items.each do |checklist_item|
+          %tr{:id => "remove_checklist_item_#{checklist_item.id}"}
             %td
-              = form_for @backlog_item.checklist_items.new, :url => create_checklist_item_path(@backlog_item) do |f|
-                = f.text_field :description, :id => "add_checklist_item_description", :placeholder => "Add checklist item", :class => "form-control"
-      .col-lg-7
-        %div
-          %h4= "Discussion"
-          %table.table.table-striped.table-noborder.discussion
-            - @backlog_item.comments.each do |comment|
-              %tr
-                %td
-                  %p= comment.comment
-                  %small
-                    %em= "#{time_ago_in_words comment.created_at} ago"
-                    = " by "
-                    %strong= comment.user.email || "Anonymous"
+              %label.checkbox
+                = check_box_tag "checklist_item[id='#{checklist_item.id}']", checklist_item.id, checklist_item.completed, :onchange => "$.get('#{toggle_checklist_item_path(checklist_item)}')"
+                = best_in_place checklist_item, :description, :type => :input, :path => update_checklist_item_path(checklist_item)
+                %span.pull-right
+                  %i{:id => "checklist_item_#{checklist_item.id}_delete", :class => "icon-remove", :onclick => "$.get('/checklist_items/#{checklist_item.id}/delete'); $('#remove_checklist_item_#{checklist_item.id}').remove();"}
+        %tr
+          %td
+            = form_for @backlog_item.checklist_items.new, :url => create_checklist_item_path(@backlog_item) do |f|
+              = f.text_field :description, :id => "add_checklist_item_description", :placeholder => "Add checklist item", :class => "form-control"
+    .col-lg-7
+      %div
+        %h4= "Discussion"
+        %table.table.table-striped.table-noborder.discussion
+          - @backlog_item.comments.each do |comment|
             %tr
               %td
-                = form_for @backlog_item.comments.new, :url => create_comment_path(@backlog_item) do |f|
-                  .form-group
-                    = f.text_area :comment, :id => "add_comment_message", :placeholder => "Leave a comment", :class => "form-control", :rows => 4
-                  = f.submit :class => 'btn btn-default', :value => 'Leave Comment'
+                %p= comment.comment
+                %small
+                  %em= "#{time_ago_in_words comment.created_at} ago"
+                  = " by "
+                  %strong= comment.user.email || "Anonymous"
+          %tr
+            %td
+              = form_for @backlog_item.comments.new, :url => create_comment_path(@backlog_item) do |f|
+                .form-group
+                  = f.text_area :comment, :id => "add_comment_message", :placeholder => "Leave a comment", :class => "form-control", :rows => 4
+                = f.submit :class => 'btn btn-default', :value => 'Leave Comment'
   .row
     .col-lg-12
       %hr
