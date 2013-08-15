@@ -29,7 +29,7 @@
   .row
     .col-lg-5
       %h4= "Checklist"
-      %table.table.table-striped.table-noborder
+      %table.table.table-striped.table-noborder.checklist
         - @backlog_item.checklist_items.each do |checklist_item|
           %tr{:id => "remove_checklist_item_#{checklist_item.id}"}
             %td
