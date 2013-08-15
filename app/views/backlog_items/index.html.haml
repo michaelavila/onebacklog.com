@@ -1,4 +1,4 @@
-%h1= "Backlog"
+%h1= "OneBacklog"
 
 %table.table.table-striped 
   - if @backlog_items.empty?
@@ -7,5 +7,4 @@
     - @backlog_items.each do |backlog_item|
       %tr
         %td
-          %span.col-lg-1= backlog_item.position
-          %span.col-lg-9= link_to backlog_item.name, backlog_item_path(backlog_item)
+          %span.col-lg-12= link_to backlog_item.name, backlog_item_path(backlog_item)
