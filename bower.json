@@ -1,6 +1,6 @@
 {
   "name": "onebacklog.com",
   "dependencies": {
-    "bootstrap": "3.0.0-rc1"
+    "bootstrap": "3.0.0-rc.2"
   }
 }
