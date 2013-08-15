@@ -12,7 +12,6 @@ describe 'backlog_items/show.html.haml' do
       
       render
       rendered.should have_css('#status.done')
-      rendered.should have_css('#position.done')
     end
 
     it 'uses warning colors when item is not complete' do
@@ -20,7 +19,6 @@ describe 'backlog_items/show.html.haml' do
       
       render
       rendered.should have_css('#status.wip')
-      rendered.should have_css('#position.wip')
     end
   end
 
