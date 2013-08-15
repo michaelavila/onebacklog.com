@@ -88,6 +88,11 @@ When /^I remove the item$/ do
   page.find(".remove-backlog-item").click
 end
 
+When /^I remove an item from the backlog$/ do
+  page.evaluate_script 'window.confirm = function() { return true; }'
+  page.find("#backlog_item_1_delete").click
+end
+
 Then /^I should see the name of the item$/ do
   expect(page).to have_content(@backlog_item.name)
 end

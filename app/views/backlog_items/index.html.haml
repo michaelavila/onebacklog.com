@@ -7,4 +7,6 @@
     - @backlog_items.each do |backlog_item|
       %tr
         %td
-          %span.col-lg-12= link_to backlog_item.name, backlog_item_path(backlog_item)
+          %span.col-lg-12
+            = link_to backlog_item.name, backlog_item_path(backlog_item)
+            %a.icon-remove.pull-right{:href => destroy_backlog_item_path(backlog_item), :id => "backlog_item_#{backlog_item.id}_delete", :onclick => "return confirm('Are you sure?')"}
