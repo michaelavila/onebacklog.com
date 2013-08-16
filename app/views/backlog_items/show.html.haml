@@ -19,13 +19,6 @@
                 = assignment.user.email
             - else
               = "No active people"
-        %h6= "Projects"
-        %p
-          %small
-            - if @backlog_item.project_list.count > 0
-              = @backlog_item.project_list
-            - else
-              = "No project labels"
   .row
     .col-lg-5
       %h4= "Checklist"

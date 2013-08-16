@@ -28,11 +28,4 @@ describe 'backlog_items/show.html.haml' do
       rendered.should have_content("No active people")
     end
   end
-
-  describe 'project labels' do
-    it 'shows correct empty message' do
-      render
-      rendered.should have_content("No project labels")
-    end
-  end
 end
